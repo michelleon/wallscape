@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32DC30CF1C0794050079A251 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30CE1C0794050079A251 /* AppDelegate.swift */; };
+		32DC30D11C0794050079A251 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30D01C0794050079A251 /* ViewController.swift */; };
+		32DC30D41C0794050079A251 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DC30D21C0794050079A251 /* Main.storyboard */; };
+		32DC30D61C0794050079A251 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32DC30D51C0794050079A251 /* Assets.xcassets */; };
+		32DC30E11C0794060079A251 /* ScreensaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30E01C0794060079A251 /* ScreensaverTests.swift */; };
+		32DC30EC1C0794060079A251 /* ScreensaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30EB1C0794060079A251 /* ScreensaverUITests.swift */; };
+		32DC30FA1C07C54E0079A251 /* ScreensaverBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30F91C07C54E0079A251 /* ScreensaverBrain.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32DC30DD1C0794060079A251 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32DC30C31C0794050079A251 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32DC30CA1C0794050079A251;
+			remoteInfo = Screensaver;
+		};
+		32DC30E81C0794060079A251 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32DC30C31C0794050079A251 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32DC30CA1C0794050079A251;
+			remoteInfo = Screensaver;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32DC30CB1C0794050079A251 /* Screensaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Screensaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32DC30CE1C0794050079A251 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		32DC30D01C0794050079A251 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32DC30D31C0794050079A251 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		32DC30D51C0794050079A251 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		32DC30D71C0794050079A251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32DC30DC1C0794060079A251 /* ScreensaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreensaverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32DC30E01C0794060079A251 /* ScreensaverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensaverTests.swift; sourceTree = "<group>"; };
+		32DC30E21C0794060079A251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32DC30E71C0794060079A251 /* ScreensaverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreensaverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32DC30EB1C0794060079A251 /* ScreensaverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensaverUITests.swift; sourceTree = "<group>"; };
+		32DC30ED1C0794060079A251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32DC30F91C07C54E0079A251 /* ScreensaverBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreensaverBrain.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32DC30C81C0794050079A251 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DC30D91C0794060079A251 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DC30E41C0794060079A251 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32DC30C21C0794050079A251 = {
+			isa = PBXGroup;
+			children = (
+				32DC30F91C07C54E0079A251 /* ScreensaverBrain.swift */,
+				32DC30CD1C0794050079A251 /* Screensaver */,
+				32DC30DF1C0794060079A251 /* ScreensaverTests */,
+				32DC30EA1C0794060079A251 /* ScreensaverUITests */,
+				32DC30CC1C0794050079A251 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		32DC30CC1C0794050079A251 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32DC30CB1C0794050079A251 /* Screensaver.app */,
+				32DC30DC1C0794060079A251 /* ScreensaverTests.xctest */,
+				32DC30E71C0794060079A251 /* ScreensaverUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32DC30CD1C0794050079A251 /* Screensaver */ = {
+			isa = PBXGroup;
+			children = (
+				32DC30CE1C0794050079A251 /* AppDelegate.swift */,
+				32DC30D01C0794050079A251 /* ViewController.swift */,
+				32DC30D21C0794050079A251 /* Main.storyboard */,
+				32DC30D51C0794050079A251 /* Assets.xcassets */,
+				32DC30D71C0794050079A251 /* Info.plist */,
+			);
+			path = Screensaver;
+			sourceTree = "<group>";
+		};
+		32DC30DF1C0794060079A251 /* ScreensaverTests */ = {
+			isa = PBXGroup;
+			children = (
+				32DC30E01C0794060079A251 /* ScreensaverTests.swift */,
+				32DC30E21C0794060079A251 /* Info.plist */,
+			);
+			path = ScreensaverTests;
+			sourceTree = "<group>";
+		};
+		32DC30EA1C0794060079A251 /* ScreensaverUITests */ = {
+			isa = PBXGroup;
+			children = (
+				32DC30EB1C0794060079A251 /* ScreensaverUITests.swift */,
+				32DC30ED1C0794060079A251 /* Info.plist */,
+			);
+			path = ScreensaverUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32DC30CA1C0794050079A251 /* Screensaver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32DC30F01C0794060079A251 /* Build configuration list for PBXNativeTarget "Screensaver" */;
+			buildPhases = (
+				32DC30C71C0794050079A251 /* Sources */,
+				32DC30C81C0794050079A251 /* Frameworks */,
+				32DC30C91C0794050079A251 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Screensaver;
+			productName = Screensaver;
+			productReference = 32DC30CB1C0794050079A251 /* Screensaver.app */;
+			productType = "com.apple.product-type.application";
+		};
+		32DC30DB1C0794060079A251 /* ScreensaverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32DC30F31C0794060079A251 /* Build configuration list for PBXNativeTarget "ScreensaverTests" */;
+			buildPhases = (
+				32DC30D81C0794060079A251 /* Sources */,
+				32DC30D91C0794060079A251 /* Frameworks */,
+				32DC30DA1C0794060079A251 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32DC30DE1C0794060079A251 /* PBXTargetDependency */,
+			);
+			name = ScreensaverTests;
+			productName = ScreensaverTests;
+			productReference = 32DC30DC1C0794060079A251 /* ScreensaverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		32DC30E61C0794060079A251 /* ScreensaverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32DC30F61C0794060079A251 /* Build configuration list for PBXNativeTarget "ScreensaverUITests" */;
+			buildPhases = (
+				32DC30E31C0794060079A251 /* Sources */,
+				32DC30E41C0794060079A251 /* Frameworks */,
+				32DC30E51C0794060079A251 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32DC30E91C0794060079A251 /* PBXTargetDependency */,
+			);
+			name = ScreensaverUITests;
+			productName = ScreensaverUITests;
+			productReference = 32DC30E71C0794060079A251 /* ScreensaverUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32DC30C31C0794050079A251 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Michelle Leon";
+				TargetAttributes = {
+					32DC30CA1C0794050079A251 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					32DC30DB1C0794060079A251 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 32DC30CA1C0794050079A251;
+					};
+					32DC30E61C0794060079A251 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 32DC30CA1C0794050079A251;
+					};
+				};
+			};
+			buildConfigurationList = 32DC30C61C0794050079A251 /* Build configuration list for PBXProject "Screensaver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 32DC30C21C0794050079A251;
+			productRefGroup = 32DC30CC1C0794050079A251 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32DC30CA1C0794050079A251 /* Screensaver */,
+				32DC30DB1C0794060079A251 /* ScreensaverTests */,
+				32DC30E61C0794060079A251 /* ScreensaverUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32DC30C91C0794050079A251 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32DC30D61C0794050079A251 /* Assets.xcassets in Resources */,
+				32DC30D41C0794050079A251 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DC30DA1C0794060079A251 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DC30E51C0794060079A251 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32DC30C71C0794050079A251 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32DC30FA1C07C54E0079A251 /* ScreensaverBrain.swift in Sources */,
+				32DC30D11C0794050079A251 /* ViewController.swift in Sources */,
+				32DC30CF1C0794050079A251 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DC30D81C0794060079A251 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32DC30E11C0794060079A251 /* ScreensaverTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32DC30E31C0794060079A251 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32DC30EC1C0794060079A251 /* ScreensaverUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32DC30DE1C0794060079A251 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32DC30CA1C0794050079A251 /* Screensaver */;
+			targetProxy = 32DC30DD1C0794060079A251 /* PBXContainerItemProxy */;
+		};
+		32DC30E91C0794060079A251 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32DC30CA1C0794050079A251 /* Screensaver */;
+			targetProxy = 32DC30E81C0794060079A251 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		32DC30D21C0794050079A251 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32DC30D31C0794050079A251 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32DC30EE1C0794060079A251 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		32DC30EF1C0794060079A251 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		32DC30F11C0794060079A251 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Screensaver/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mkleon.Screensaver;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		32DC30F21C0794060079A251 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Screensaver/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mkleon.Screensaver;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		32DC30F41C0794060079A251 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ScreensaverTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mkleon.ScreensaverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Screensaver.app/Screensaver";
+			};
+			name = Debug;
+		};
+		32DC30F51C0794060079A251 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ScreensaverTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mkleon.ScreensaverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Screensaver.app/Screensaver";
+			};
+			name = Release;
+		};
+		32DC30F71C0794060079A251 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ScreensaverUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mkleon.ScreensaverUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Screensaver;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		32DC30F81C0794060079A251 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ScreensaverUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mkleon.ScreensaverUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Screensaver;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32DC30C61C0794050079A251 /* Build configuration list for PBXProject "Screensaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32DC30EE1C0794060079A251 /* Debug */,
+				32DC30EF1C0794060079A251 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32DC30F01C0794060079A251 /* Build configuration list for PBXNativeTarget "Screensaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32DC30F11C0794060079A251 /* Debug */,
+				32DC30F21C0794060079A251 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		32DC30F31C0794060079A251 /* Build configuration list for PBXNativeTarget "ScreensaverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32DC30F41C0794060079A251 /* Debug */,
+				32DC30F51C0794060079A251 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		32DC30F61C0794060079A251 /* Build configuration list for PBXNativeTarget "ScreensaverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32DC30F71C0794060079A251 /* Debug */,
+				32DC30F81C0794060079A251 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 32DC30C31C0794050079A251 /* Project object */;
+}

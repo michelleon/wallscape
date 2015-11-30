@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Screensaver" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper13" translatesAutoresizingMaskIntoConstraints="NO" id="aw7-97-4k4">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK7-aN-qWk">
+                                <rect key="frame" x="20" y="20" width="737" height="191"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="160"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr9-Zj-LXm">
+                                <rect key="frame" x="20" y="208" width="527" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uh8-IJ-RXu">
+                                <rect key="frame" x="1743" y="20" width="157" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="location" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMn-J6-CZ0">
+                                <rect key="frame" x="1667" y="78" width="233" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JyQ-3g-AiN">
+                                <rect key="frame" x="1757" y="10" width="102" height="77"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aw7-97-4k4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3pL-31-VW0"/>
+                            <constraint firstItem="aw7-97-4k4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7ah-eh-CYc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IK7-aN-qWk" secondAttribute="trailing" constant="1143" id="L9I-Ii-vmx"/>
+                            <constraint firstItem="IK7-aN-qWk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Po7-d2-eId"/>
+                            <constraint firstAttribute="trailing" secondItem="aw7-97-4k4" secondAttribute="trailing" id="WkV-a9-Zwl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aw7-97-4k4" secondAttribute="bottom" id="aBr-Yg-jLP"/>
+                            <constraint firstItem="aw7-97-4k4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dj6-OM-cPn"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="IK7-aN-qWk" secondAttribute="leading" id="hWu-74-JSU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="background" destination="aw7-97-4k4" id="LUW-45-68d"/>
+                        <outlet property="cityDisplay" destination="sMn-J6-CZ0" id="iGX-DT-Dkc"/>
+                        <outlet property="date" destination="Xr9-Zj-LXm" id="GmD-zK-4Tg"/>
+                        <outlet property="tempDisplay" destination="uh8-IJ-RXu" id="W5x-ek-yp5"/>
+                        <outlet property="time" destination="IK7-aN-qWk" id="VLN-P1-iy3"/>
+                        <outlet property="weatherIcon" destination="JyQ-3g-AiN" id="Wjg-Tv-DOT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="361" y="154"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="wallpaper13" width="2000" height="1125"/>
+    </resources>
+</document>
