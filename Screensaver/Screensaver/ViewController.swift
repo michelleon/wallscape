@@ -17,6 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var tempDisplay: UILabel!
     @IBOutlet weak var cityDisplay: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var picLocation: UILabel!
     
     var timer = NSTimer()
     var brain = ScreensaverBrain()
@@ -60,6 +61,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let imgNum = Int(arc4random_uniform(40))
         print("chose \(imgNum)")
         background.image = UIImage(named: "wallpaper\(imgNum).jpeg");
+        if let location = brain.getLocation(imgNum) {
+            picLocation.text = location
+        } else {
+            picLocation.text = "Unknown"
+        }
     }
     
     func displayTime() {
@@ -84,7 +90,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             time.text! = "\(hour):\(minutes)"
         }
         date.text! = "\(month!) \(day), \(year)"
-        
         
     }
     
@@ -150,7 +155,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 if let temp = partial["temp"] as? Double
                 {
                     tempDisplay.text = String(format:"%.0f℉", temp) //TODO: Option to switch b/t celcius and fare
-//                    print("\(temp)")
                 }
             }
             if let city = json["name"] as? String {
@@ -162,9 +166,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func getWeatherData(urlString: String) {
+    func displayWeather(lat:Double, lon:Double) {
+        let urlString = "http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=imperial&appid=\(weatherKey)"
         let url = NSURL(string: urlString)
-//        print(urlString)
+        //        print(urlString)
         print("\(url)")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!) {
@@ -176,11 +181,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
         task.resume()
-    }
-    
-    func displayWeather(lat:Double, lon:Double) {
-        let urlString = "http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=imperial&appid=\(weatherKey)"
-        getWeatherData(urlString)
     }
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

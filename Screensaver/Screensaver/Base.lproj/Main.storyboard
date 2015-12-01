@@ -47,9 +47,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="JyQ-3g-AiN">
                                 <rect key="frame" x="1727" y="30" width="51" height="48"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location_pin" translatesAutoresizingMaskIntoConstraints="NO" id="m0Y-zp-xYe">
-                                <rect key="frame" x="20" y="1014" width="47" height="46"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location_pin" translatesAutoresizingMaskIntoConstraints="NO" id="m0Y-zp-xYe">
+                                <rect key="frame" x="20" y="1028" width="34" height="32"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Picture Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53s-aI-gJP">
+                                <rect key="frame" x="62" y="1028" width="489" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -67,6 +73,7 @@
                         <outlet property="background" destination="aw7-97-4k4" id="LUW-45-68d"/>
                         <outlet property="cityDisplay" destination="sMn-J6-CZ0" id="iGX-DT-Dkc"/>
                         <outlet property="date" destination="Xr9-Zj-LXm" id="GmD-zK-4Tg"/>
+                        <outlet property="picLocation" destination="53s-aI-gJP" id="9zZ-9G-Neh"/>
                         <outlet property="tempDisplay" destination="uh8-IJ-RXu" id="W5x-ek-yp5"/>
                         <outlet property="time" destination="IK7-aN-qWk" id="VLN-P1-iy3"/>
                         <outlet property="weatherIcon" destination="JyQ-3g-AiN" id="Wjg-Tv-DOT"/>
