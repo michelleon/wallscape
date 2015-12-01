@@ -39,7 +39,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         // Getting weather data
-        displayWeather(35, lon: 139)
+        displayWeather(37.8717, lon: -122.2728) //TODO: remember to convert to double
         
         // recurring timer calls
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
@@ -48,6 +48,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             userInfo: nil,
             repeats: true)
         self.timer = NSTimer.scheduledTimerWithTimeInterval(120.0, target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(3600.0, target: self, selector: Selector("displayWeather"), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,12 +102,49 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         11 : "November",
         12 : "December"
     ]
+    
+    private var iconByNum: [String:String] = [
+        "01d" : "sun.png",
+        "01n" : "moon.png",
+        "02d" : "partly_cloudy.png",
+        "02n" : "cloudy_night.png",
+        "03d" : "clouds.png",
+        "03n" : "clouds.png",
+        "04d" : "clouds.png",
+        "04n" : "clouds.png",
+        "09d" : "rain.png",
+        "09n" : "rain.png",
+        "10d" : "rain.png",
+        "10n" : "rain.png",
+        "11d" : "lightning.png",
+        "11n" : "lightning.png",
+        "13d" : "rain_and_snow.png",
+        "13n" : "rain_and_snow.png",
+        "50d" : "clouds.png",
+        "50n" : "clouds.png"
+    ]
 
-    func getLabels(weatherData: NSData) {
+    private func getLabels(weatherData: NSData) {
         //        var jsonError: NSError?
         
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(weatherData, options: .AllowFragments)
+            if let weather = json["weather"] as? [[String: AnyObject]] {
+                //                if let id = weather["id"] as? Int {
+                //                    var isWindy = false
+                //                    if case 956...962 = id {
+                //                        isWindy = true
+                //                    }
+                //                    if id == 905 {
+                //                        isWindy = true
+                //                    }
+                //                }
+                if let icon = weather[0]["icon"] as? String {
+                    let icon_filename = iconByNum[icon]
+                    weatherIcon.image = UIImage(named: icon_filename!);
+                    print(icon_filename!) //Remove
+                }
+            }
             if let partial = json["main"] as? [String: AnyObject]
             {
                 if let temp = partial["temp"] as? Double
@@ -118,34 +156,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             if let city = json["name"] as? String {
                 cityDisplay.text = city
             }
-            if let weather = json["weather"] as? [String: AnyObject] {
-                if let icon = weather["icon"] as? String {
-                    switch icon {
-                        case "01d":
-                            weatherIcon.image = UIImage(named: "wallpaper\(imgNum).png");
-                        case "01n":
-                        case "02d":
-                        case "02n":
-                        case "03d":
-                        case "03n":
-                        case "04d":
-                        case "04n":
-                        case "09d":
-                        case "09n":
-                        case "10d":
-                        case "10n":
-                        case "11d":
-                        case "11n":
-                        case "13d":
-                        case "13n":
-                        case "50d":
-                        case "50n":
-                        
-                    }
-                    
-                }
-            }
-            
         } catch {
             print("error serializing JSON: \(error)")
         }
@@ -168,7 +178,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         task.resume()
     }
     
-    func displayWeather(lat:Int, lon:Int) {
+    func displayWeather(lat:Double, lon:Double) {
         let urlString = "http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=imperial&appid=\(weatherKey)"
         getWeatherData(urlString)
     }
@@ -176,8 +186,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
-        let lat = Int(locValue.latitude)
-        let lon = Int(locValue.longitude)
+//        let lat = Int(locValue.latitude)
+//        let lon = Int(locValue.longitude)
+        let lat = Double(locValue.latitude)
+        let lon = Double(locValue.longitude)
         displayWeather(lat, lon: lon)
     }
 
