@@ -57,7 +57,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func changeImage() {
-        let imgNum = Int(arc4random_uniform(30))
+        let imgNum = Int(arc4random_uniform(40))
         print("chose \(imgNum)")
         background.image = UIImage(named: "wallpaper\(imgNum).jpeg");
     }
