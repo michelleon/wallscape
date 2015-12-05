@@ -28,6 +28,8 @@
 	<string>To provide weather data</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To provide weather data</string>
+	<key>CFBundleDisplayName</key>
+	<string>Wallscape</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		329854EB1C12283D0043B923 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329854EA1C12283D0043B923 /* CheckBox.swift */; };
 		32DC30CF1C0794050079A251 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30CE1C0794050079A251 /* AppDelegate.swift */; };
 		32DC30D11C0794050079A251 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30D01C0794050079A251 /* ViewController.swift */; };
 		32DC30D41C0794050079A251 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DC30D21C0794050079A251 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		329854EA1C12283D0043B923 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		32DC30CB1C0794050079A251 /* Screensaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Screensaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DC30CE1C0794050079A251 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32DC30D01C0794050079A251 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				32DC30CE1C0794050079A251 /* AppDelegate.swift */,
 				32DC30D01C0794050079A251 /* ViewController.swift */,
 				32DC30D21C0794050079A251 /* Main.storyboard */,
+				329854EA1C12283D0043B923 /* CheckBox.swift */,
 				32DC30D51C0794050079A251 /* Assets.xcassets */,
 				32DC30D71C0794050079A251 /* Info.plist */,
 			);
@@ -193,6 +196,7 @@
 				TargetAttributes = {
 					32DC30CA1C0794050079A251 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = LG6G93ZLBQ;
 					};
 					32DC30DB1C0794060079A251 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -255,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329854EB1C12283D0043B923 /* CheckBox.swift in Sources */,
 				32DC30FA1C07C54E0079A251 /* ScreensaverBrain.swift in Sources */,
 				32DC30D11C0794050079A251 /* ViewController.swift in Sources */,
 				32DC30CF1C0794050079A251 /* AppDelegate.swift in Sources */,
@@ -390,10 +395,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Screensaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mkleon.Screensaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -402,10 +410,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Screensaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mkleon.Screensaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -476,6 +487,7 @@
 				32DC30F21C0794060079A251 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		32DC30F31C0794060079A251 /* Build configuration list for PBXNativeTarget "ScreensaverTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +496,7 @@
 				32DC30F51C0794060079A251 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		32DC30F61C0794060079A251 /* Build configuration list for PBXNativeTarget "ScreensaverUITests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +505,7 @@
 				32DC30F81C0794060079A251 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
