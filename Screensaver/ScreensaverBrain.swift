@@ -19,6 +19,8 @@ class ScreensaverBrain {
     var userSetAlarm = false
     var isSleepTime = false
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     let locationByNum: [Int:String] = [
         0 : "Broken Hill, New South Wales",
         1 : "Iceland",
@@ -95,6 +97,34 @@ class ScreensaverBrain {
         }
     }
     
+    func getUserDefaults() -> Bool {
+        // return user defaults otherwise nil
+        if defaults.integerForKey("remember") == 1 {
+            self.sleepHour = defaults.integerForKey("sleepHour")
+            self.wakeHour = defaults.integerForKey("wakeHour")
+            self.sleepMinute = defaults.integerForKey("sleepMinute")
+            self.wakeMinute = defaults.integerForKey("wakeMinute")
+            return true
+        }
+        return false
+        
+    }
+    
+    func setUserDefaults() {
+        defaults.setInteger(self.sleepHour!, forKey: "sleepHour")
+        defaults.setInteger(self.sleepMinute!, forKey: "sleepMinute")
+        defaults.setInteger(self.wakeHour!, forKey: "wakeHour")
+        defaults.setInteger(self.wakeMinute!, forKey: "wakeMinute")
+        defaults.setInteger(1, forKey: "remember")
+    }
+    
+    func clearUserDefaults() {
+        defaults.setInteger(0, forKey: "sleepHour")
+        defaults.setInteger(0, forKey: "sleepMinute")
+        defaults.setInteger(0, forKey: "wakeHour")
+        defaults.setInteger(0, forKey: "wakeMinute")
+        defaults.setInteger(0, forKey: "remember")
+    }
     
     func getLocation(imgNum: Int) -> String? {
         if let location = self.locationByNum[imgNum] {
@@ -102,6 +132,47 @@ class ScreensaverBrain {
         }
         return nil
     }
+    
+    
+    func setAlarm(wakeAM: Bool, sleepPM: Bool) {
+        if sleepPM == false {
+            if self.sleepHour == 12 {
+                self.sleepHour = 0
+            }
+        } else {
+            if self.sleepHour < 12 {
+                self.sleepHour = self.sleepHour! + 12
+            }
+        }
+        if wakeAM == true {
+            if self.wakeHour == 12 {
+                self.wakeHour = 0
+            }
+        } else {
+            if self.wakeHour < 12 {
+                self.wakeHour = self.wakeHour! + 12
+            }
+        }
+        self.userSetAlarm = true
+    }
+    
+    func resetAlarm() {
+        self.sleepHour = nil
+        self.sleepMinute = nil
+        self.wakeHour = nil
+        self.wakeMinute = nil
+        self.isSleepTime = false
 
+    }
+
+    func formatMinutes(minutes: Int) -> String {
+        var retval: String
+        if minutes < 10 {
+            retval = "0\(minutes)"
+        } else {
+            retval = "\(minutes)"
+        }
+        return retval
+    }
     
 }
