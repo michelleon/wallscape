@@ -85,6 +85,12 @@
                                     <segue destination="2LP-sF-AYK" kind="presentation" modalPresentationStyle="overFullScreen" id="799-5A-6pA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waking up a bit late, aren't ya?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIE-Dz-JO1">
+                                <rect key="frame" x="370" y="497" width="1180" height="92"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="77"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -116,6 +122,7 @@
                         <outlet property="background" destination="aw7-97-4k4" id="LUW-45-68d"/>
                         <outlet property="cityDisplay" destination="sMn-J6-CZ0" id="iGX-DT-Dkc"/>
                         <outlet property="date" destination="Xr9-Zj-LXm" id="GmD-zK-4Tg"/>
+                        <outlet property="greeting" destination="VIE-Dz-JO1" id="6jd-Cb-n1m"/>
                         <outlet property="locationPin" destination="m0Y-zp-xYe" id="pFP-6M-hxT"/>
                         <outlet property="picLocation" destination="53s-aI-gJP" id="9zZ-9G-Neh"/>
                         <outlet property="tempDisplay" destination="uh8-IJ-RXu" id="W5x-ek-yp5"/>
@@ -160,12 +167,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X9-qJ-PYw">
                                 <rect key="frame" x="967" y="319" width="25" height="68"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="68"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvt-fM-Lo2">
-                                <rect key="frame" x="561" y="314" width="242" height="78"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="85"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -247,6 +248,12 @@
                                     <action selector="toggleWake:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="SBG-Au-r2Z"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvt-fM-Lo2">
+                                <rect key="frame" x="561" y="314" width="242" height="78"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="85"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>

@@ -141,6 +141,19 @@ class ScreensaverBrain {
         }
         self.userSetAlarm = true
     }
+
+    func getGreetingByTimeOfDay(hour: Int) -> String {
+        // hour is in 24 hr mode
+        if hour < 12 {
+            return "Good morning!"
+        } else if hour < 17{
+            return "Good afternoon!"
+        } else if hour < 19 {
+            return "Good evening!"
+        } else {
+            return "Waking up a bit late, aren't ya?"
+        }
+    }
     
     func resetAlarm() {
         self.sleepHour = nil

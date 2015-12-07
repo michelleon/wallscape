@@ -31,6 +31,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var picLocation: UILabel!
     @IBOutlet weak var locationPin: UIImageView!
+    @IBOutlet weak var greeting: UILabel!
     
     var timer = NSTimer()
     var brain = ScreensaverBrain()
@@ -41,6 +42,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Set up UI Elements
+        greeting.text = ""
+        
         // Do any additional setup after loading the view, typically from a nib.
         updateTime()
         changeImage()
@@ -54,9 +58,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.requestLocation()
         }
-        
-        // Getting weather data
-//        displayWeather(37.8717, lon: -122.2728) //TODO: remember to convert to double
         
         // recurring timer calls
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
@@ -86,6 +87,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 locationPin.hidden = true
             }
         } else {
+            print("in the isSleepTime part of changeImage")
             picLocation.text = ""
             locationPin.hidden = true
             background.image = UIImage(named: "black.jpg")
@@ -94,9 +96,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func updateTime() {
         let curr_date = NSDate()
-        //        let formatter = NSDateFormatter()
-        //        formatter.timeStyle = .ShortStyle
-        //        time.text! = formatter.stringFromDate(date)
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Hour, .Minute, .Month, .Day, .Year], fromDate: curr_date)
         let hour = components.hour
@@ -107,6 +106,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         if brain.isSleepTime == true {
             if (brain.wakeHour != nil) && (brain.wakeMinute != nil) {
+                print("brain wake time \(brain.wakeHour!):\(brain.wakeMinute)")
                 if brain.wakeHour! == hour && (brain.wakeMinute! == minutes) {
                     print("wakeUp called")
                     wakeUp()
@@ -114,7 +114,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         } else if let sleepHour = brain.sleepHour {
             if let sleepMinute = brain.sleepMinute {
-//                print("compared \(hour):\(minutes) to sleep \(brain.sleepHour):\(brain.sleepMinute)")
                 if (sleepHour == hour) && (sleepMinute == minutes) && (brain.userSetAlarm == true) {
                     print("goToSleep called first time")
                     goToSleep()
@@ -159,10 +158,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func wakeUp() {
 //        print("wakeUp called")
+        greeting.text = brain.getGreetingByTimeOfDay(brain.wakeHour!)
         brain.resetAlarm()
         updateTime()
         changeImage()
         displayWeather(mostRecentLat!, lon: mostRecentLong!)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(120.0, target: self, selector: Selector("removeGreeting"), userInfo: nil, repeats: false)
+    }
+    
+    func removeGreeting() {
+        greeting.text = ""
     }
     
     private var monthByNum: [Int:String] = [
@@ -296,7 +301,6 @@ class chooseWakeTime: UIViewController {
     
     var userCheckedRememberSettings = false
     var brain: ScreensaverBrain? = nil
-//    let defaults = NSUserDefaults.standardUserDefaults()
 
     
     override func viewDidLoad() {
@@ -304,7 +308,6 @@ class chooseWakeTime: UIViewController {
         checkBox.setBackgroundImage(UIImage(named: "unchecked_box_2.png"), forState: .Normal)
         checkBox.setImage(UIImage(named: "checked_box_2.png"), forState: .Selected)
         checkBox.backgroundColor = UIColor.clearColor()
-//        sleepHourField.textColor = UIColor.whiteColor()
         sleepToggle.setTitle("PM", forState: .Normal)
         wakeToggle.setTitle("AM", forState: .Normal)
         errorMessage.text = ""
