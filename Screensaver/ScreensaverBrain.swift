@@ -18,6 +18,8 @@ class ScreensaverBrain {
     var sleepHour: Int? = nil
     var userSetAlarm = false
     var isSleepTime = false
+    var sleepToggle = "PM"
+    var wakeToggle = "AM"
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -57,45 +59,26 @@ class ScreensaverBrain {
 //        39 : "Seekofelhütte, Fosses, Italien"
     ]
     // REMEMBER TO CONvert hours to +12 depending on AM or PM 
-    func setSleepHour(hour: Int) -> Bool {
-        if (hour <= 12) && (hour > 0) {
-            print("setSleepHour to \(hour)")
-            self.sleepHour = hour
-            return true
-        } else {
-            return false
-        }
+    func setAMPM(sleep: String, wake: String) {
+        self.sleepToggle = sleep
+        self.wakeToggle = wake
     }
 
-    func setSleepMinutes(minutes: Int) -> Bool {
-        if (minutes < 60) && (minutes > 0) {
-            print("setSleepMinutes to \(minutes)")
-            self.sleepMinute = minutes
-            return true
-        } else {
+    func setTimes(time: Int, field: String) -> Bool {
+        switch field {
+        case "sleepHour" :
+            return self.setSleepHour(time)
+        case "sleepMinute" :
+            return self.setSleepMinutes(time)
+        case "wakeHour" :
+            return self.setWakeHour(time)
+        case "wakeMinute" :
+            return self.setWakeMinutes(time)
+        default:
             return false
         }
     }
     
-    func setWakeHour(hour: Int) -> Bool {
-        if (hour <= 12) && (hour > 0) {
-            print("setWakeHour to \(hour)")
-            self.wakeHour = hour
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func setWakeMinutes(minutes: Int) -> Bool {
-        if (minutes < 60) && (minutes > 0) {
-            print("setWakeMinutes to \(minutes)")
-            self.wakeMinute = minutes
-            return true
-        } else {
-            return false
-        }
-    }
     
     func getUserDefaults() -> Bool {
         // return user defaults otherwise nil
@@ -104,10 +87,11 @@ class ScreensaverBrain {
             self.wakeHour = defaults.integerForKey("wakeHour")
             self.sleepMinute = defaults.integerForKey("sleepMinute")
             self.wakeMinute = defaults.integerForKey("wakeMinute")
+            self.sleepToggle = defaults.stringForKey("sleepPM")!
+            self.wakeToggle = defaults.stringForKey("wakeAM")!
             return true
         }
         return false
-        
     }
     
     func setUserDefaults() {
@@ -115,6 +99,8 @@ class ScreensaverBrain {
         defaults.setInteger(self.sleepMinute!, forKey: "sleepMinute")
         defaults.setInteger(self.wakeHour!, forKey: "wakeHour")
         defaults.setInteger(self.wakeMinute!, forKey: "wakeMinute")
+        defaults.setObject(self.sleepToggle, forKey: "sleepPM")
+        defaults.setObject(self.wakeToggle, forKey: "wakeAM")
         defaults.setInteger(1, forKey: "remember")
     }
     
@@ -134,8 +120,8 @@ class ScreensaverBrain {
     }
     
     
-    func setAlarm(wakeAM: Bool, sleepPM: Bool) {
-        if sleepPM == false {
+    func setAlarm() {
+        if self.sleepToggle == "AM" {
             if self.sleepHour == 12 {
                 self.sleepHour = 0
             }
@@ -144,7 +130,7 @@ class ScreensaverBrain {
                 self.sleepHour = self.sleepHour! + 12
             }
         }
-        if wakeAM == true {
+        if self.wakeToggle == "AM" {
             if self.wakeHour == 12 {
                 self.wakeHour = 0
             }
@@ -164,6 +150,14 @@ class ScreensaverBrain {
         self.isSleepTime = false
 
     }
+    
+    func toggleAMPM(text: String) -> String {
+        if text == "AM" {
+            return "PM"
+        } else {
+            return "AM"
+        }
+    }
 
     func formatMinutes(minutes: Int) -> String {
         var retval: String
@@ -173,6 +167,46 @@ class ScreensaverBrain {
             retval = "\(minutes)"
         }
         return retval
+    }
+
+    private func setSleepHour(hour: Int) -> Bool {
+        if (hour <= 12) && (hour > 0) {
+            print("setSleepHour to \(hour)")
+            self.sleepHour = hour
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func setSleepMinutes(minutes: Int) -> Bool {
+        if (minutes < 60) && (minutes >= 0) {
+            print("setSleepMinutes to \(minutes)")
+            self.sleepMinute = minutes
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func setWakeHour(hour: Int) -> Bool {
+        if (hour <= 12) && (hour > 0) {
+            print("setWakeHour to \(hour)")
+            self.wakeHour = hour
+            return true
+        } else {
+            return false
+        }
+    }
+
+    private func setWakeMinutes(minutes: Int) -> Bool {
+        if (minutes < 60) && (minutes >= 0) {
+            print("setWakeMinutes to \(minutes)")
+            self.wakeMinute = minutes
+            return true
+        } else {
+            return false
+        }
     }
     
 }

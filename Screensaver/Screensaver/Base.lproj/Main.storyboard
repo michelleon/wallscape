@@ -163,14 +163,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="4rj-Br-3WE">
-                                <rect key="frame" x="1161" y="320" width="157" height="70"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
-                                <segments>
-                                    <segment title="AM"/>
-                                    <segment title="PM"/>
-                                </segments>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvt-fM-Lo2">
                                 <rect key="frame" x="561" y="314" width="242" height="78"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="85"/>
@@ -201,14 +193,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dj2-2v-1IF">
-                                <rect key="frame" x="1161" y="475" width="157" height="70"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
-                                <segments>
-                                    <segment title="AM"/>
-                                    <segment title="PM"/>
-                                </segments>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtB-xB-eUf">
                                 <rect key="frame" x="561" y="455" width="242" height="102"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="85"/>
@@ -247,6 +231,22 @@
                                     <action selector="toggleRemember:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="Hm9-kW-Fcg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8i-tG-OOJ">
+                                <rect key="frame" x="1161" y="314" width="108" height="78"/>
+                                <inset key="contentEdgeInsets" minX="25" minY="20" maxX="25" maxY="20"/>
+                                <state key="normal" title="PM"/>
+                                <connections>
+                                    <action selector="toggleSleep:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="J4J-eW-Pgl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFb-jw-m8C">
+                                <rect key="frame" x="1161" y="464" width="108" height="86"/>
+                                <inset key="contentEdgeInsets" minX="25" minY="20" maxX="25" maxY="20"/>
+                                <state key="normal" title="AM"/>
+                                <connections>
+                                    <action selector="toggleWake:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="SBG-Au-r2Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -257,8 +257,10 @@
                         <outlet property="setAlarmButton" destination="M3x-9F-5TF" id="rBL-tl-uej"/>
                         <outlet property="sleepHourField" destination="Ed9-WK-Dw1" id="ymO-8k-Z4D"/>
                         <outlet property="sleepMinutesField" destination="DgH-K2-7QS" id="iKc-T3-sHD"/>
+                        <outlet property="sleepToggle" destination="Q8i-tG-OOJ" id="DM7-qJ-eHv"/>
                         <outlet property="wakeHourField" destination="Owy-hR-TEW" id="aZr-yF-T3l"/>
                         <outlet property="wakeMinutesField" destination="8qj-kg-ktg" id="Rpy-cu-JEI"/>
+                        <outlet property="wakeToggle" destination="UFb-jw-m8C" id="p57-0y-Chq"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="returnToMainView" id="IYG-Rn-R2T"/>
                     </connections>
                 </viewController>

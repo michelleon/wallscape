@@ -291,25 +291,30 @@ class chooseWakeTime: UIViewController {
     @IBOutlet weak var wakeHourField: UITextField!
     @IBOutlet weak var wakeMinutesField: UITextField!
     @IBOutlet var chooseWakeTimeView: UIView!
+    @IBOutlet weak var sleepToggle: UIButton!
+    @IBOutlet weak var wakeToggle: UIButton!
     
     var userCheckedRememberSettings = false
     var brain: ScreensaverBrain? = nil
 //    let defaults = NSUserDefaults.standardUserDefaults()
 
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkBox.setBackgroundImage(UIImage(named: "unchecked_box_2.png"), forState: .Normal)
         checkBox.setImage(UIImage(named: "checked_box_2.png"), forState: .Selected)
         checkBox.backgroundColor = UIColor.clearColor()
-        sleepHourField.textColor = UIColor.whiteColor()
+//        sleepHourField.textColor = UIColor.whiteColor()
+        sleepToggle.setTitle("PM", forState: .Normal)
+        wakeToggle.setTitle("AM", forState: .Normal)
         errorMessage.text = ""
-        if brain!.getUserDefaults() == true{
+        if brain!.getUserDefaults() == true {
             sleepHourField.text = "\(brain!.sleepHour!)"
             sleepMinutesField.text = brain!.formatMinutes(brain!.sleepMinute!)
             wakeHourField.text = "\(brain!.wakeHour!)"
             wakeMinutesField.text = brain!.formatMinutes(brain!.wakeMinute!)
+            sleepToggle.setTitle(brain!.sleepToggle, forState: .Normal)
+            wakeToggle.setTitle(brain!.wakeToggle, forState: .Normal)
 
         }
     }
@@ -325,7 +330,14 @@ class chooseWakeTime: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func toggleSleep(sender: AnyObject) {
+        sender.setTitle(brain!.toggleAMPM(sender.currentTitle!!), forState: .Normal)
+    }
 
+    @IBAction func toggleWake(sender: AnyObject) {
+        sender.setTitle(brain!.toggleAMPM(sender.currentTitle!!), forState: .Normal)
+    }
+    
     
     @IBAction func toggleRemember(sender: AnyObject) {
         if let button = sender as? UIButton {
@@ -347,7 +359,7 @@ class chooseWakeTime: UIViewController {
             if hour > 12 || hour < 1 {
                 errorMessage.text = "Sleep hour input is not between 1 and 12"
             } else {
-                brain!.setSleepHour(hour!)
+                brain!.setTimes(hour!, field: "sleepHour")
                 errorMessage.text = ""
             }
         }
@@ -359,7 +371,7 @@ class chooseWakeTime: UIViewController {
             if minutes > 60 || minutes < 0 {
                 errorMessage.text = "Sleep minutes input is not between 0 and 59"
             } else {
-                brain!.setSleepMinutes(minutes!)
+                brain!.setTimes(minutes!, field: "sleepMinute")
                 errorMessage.text = ""
             }
         }
@@ -371,7 +383,7 @@ class chooseWakeTime: UIViewController {
             if hour > 12 || hour < 1 {
                 errorMessage.text = "Wake hour input is not between 1 and 12"
             } else {
-                brain!.setWakeHour(hour!)
+                brain!.setTimes(hour!, field: "wakeHour")
                 errorMessage.text = ""
             }
         }
@@ -384,14 +396,13 @@ class chooseWakeTime: UIViewController {
             if minutes > 60 || minutes < 0 {
                 errorMessage.text = "Wake minutes input is not between 0 and 59"
             } else {
-                brain!.setWakeMinutes(minutes!)
+                brain!.setTimes(minutes!, field: "wakeMinute")
                 errorMessage.text = ""
             }
         }
     }
     
 
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! ViewController
         vc.brain = self.brain!
@@ -399,6 +410,8 @@ class chooseWakeTime: UIViewController {
     
     @IBAction func setAlarm(sender: AnyObject) {
         // check if user set times for all fields
+        brain!.setAMPM(sleepToggle.currentTitle!, wake: wakeToggle.currentTitle!)
+        
         if sleepHourField.text == "" || sleepMinutesField.text == "" || wakeHourField.text == "" || wakeMinutesField.text == "" {
             errorMessage.text = "One or more of the text fields is empty"
         } else {
@@ -410,7 +423,7 @@ class chooseWakeTime: UIViewController {
             } else {
                 brain!.clearUserDefaults()
             }
-            brain!.setAlarm(false, sleepPM: true) // change defaults
+            brain!.setAlarm() // change defaults
             performSegueWithIdentifier("returnToMainView", sender: self)
         }
     }
