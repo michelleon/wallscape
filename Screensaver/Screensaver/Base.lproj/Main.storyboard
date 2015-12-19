@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -119,6 +119,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="alarmClockButton" destination="GZN-17-tr3" id="gz2-qY-ahp"/>
                         <outlet property="background" destination="aw7-97-4k4" id="LUW-45-68d"/>
                         <outlet property="cityDisplay" destination="sMn-J6-CZ0" id="iGX-DT-Dkc"/>
                         <outlet property="date" destination="Xr9-Zj-LXm" id="GmD-zK-4Tg"/>
@@ -150,18 +151,19 @@
                                 <rect key="frame" x="821" y="316" width="138" height="78"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="setSleepHour:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="Zlg-bp-31Q"/>
+                                    <action selector="setSleepHour:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="AY2-JA-hJx"/>
+                                    <outlet property="delegate" destination="2LP-sF-AYK" id="5Wb-A0-d8N"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="68" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DgH-K2-7QS">
                                 <rect key="frame" x="997" y="314" width="138" height="78"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="setSleepMinutes:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="cbh-Mt-esl"/>
+                                    <action selector="setSleepMinutes:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="g94-e4-3Us"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X9-qJ-PYw">
@@ -176,7 +178,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="setWakeHour:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="LQy-iH-gnN"/>
+                                    <action selector="setWakeHour:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="zX8-fh-z1f"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="68" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8qj-kg-ktg">
@@ -185,7 +187,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="setWakeMinutes:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="YHT-CY-Tcq"/>
+                                    <action selector="setWakeMinutes:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="XrD-0T-PSA"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rI-2a-4Aq">
@@ -229,7 +231,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="toggleRemember:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="Hm9-kW-Fcg"/>
+                                    <action selector="toggleRemember:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="JEf-OO-oby"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8i-tG-OOJ">
@@ -237,7 +239,7 @@
                                 <inset key="contentEdgeInsets" minX="25" minY="20" maxX="25" maxY="20"/>
                                 <state key="normal" title="PM"/>
                                 <connections>
-                                    <action selector="toggleSleep:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="J4J-eW-Pgl"/>
+                                    <action selector="toggleSleep:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="cAs-ol-ggH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFb-jw-m8C">
@@ -245,7 +247,7 @@
                                 <inset key="contentEdgeInsets" minX="25" minY="20" maxX="25" maxY="20"/>
                                 <state key="normal" title="AM"/>
                                 <connections>
-                                    <action selector="toggleWake:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="SBG-Au-r2Z"/>
+                                    <action selector="toggleWake:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="8VG-xD-d4p"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvt-fM-Lo2">
@@ -258,16 +260,15 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="checkBox" destination="Snr-3W-d0J" id="bGO-BE-DZp"/>
-                        <outlet property="chooseWakeTimeView" destination="Mle-UJ-3FY" id="c4D-Hk-d1Q"/>
-                        <outlet property="errorMessage" destination="16j-j1-bPp" id="kmF-QV-J6p"/>
-                        <outlet property="setAlarmButton" destination="M3x-9F-5TF" id="rBL-tl-uej"/>
-                        <outlet property="sleepHourField" destination="Ed9-WK-Dw1" id="ymO-8k-Z4D"/>
-                        <outlet property="sleepMinutesField" destination="DgH-K2-7QS" id="iKc-T3-sHD"/>
-                        <outlet property="sleepToggle" destination="Q8i-tG-OOJ" id="DM7-qJ-eHv"/>
-                        <outlet property="wakeHourField" destination="Owy-hR-TEW" id="aZr-yF-T3l"/>
-                        <outlet property="wakeMinutesField" destination="8qj-kg-ktg" id="Rpy-cu-JEI"/>
-                        <outlet property="wakeToggle" destination="UFb-jw-m8C" id="p57-0y-Chq"/>
+                        <outlet property="checkBox" destination="Snr-3W-d0J" id="LtC-Q5-iHM"/>
+                        <outlet property="errorMessage" destination="16j-j1-bPp" id="jci-8N-7te"/>
+                        <outlet property="setAlarmButton" destination="M3x-9F-5TF" id="1fN-z6-Tn3"/>
+                        <outlet property="sleepHourField" destination="Ed9-WK-Dw1" id="ydJ-bZ-o1f"/>
+                        <outlet property="sleepMinutesField" destination="DgH-K2-7QS" id="g7z-bi-2D4"/>
+                        <outlet property="sleepToggle" destination="Q8i-tG-OOJ" id="hdd-Wk-5fL"/>
+                        <outlet property="wakeHourField" destination="Owy-hR-TEW" id="Wll-hA-QVV"/>
+                        <outlet property="wakeMinutesField" destination="8qj-kg-ktg" id="eS0-n8-ikQ"/>
+                        <outlet property="wakeToggle" destination="UFb-jw-m8C" id="hsN-52-Via"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="returnToMainView" id="IYG-Rn-R2T"/>
                     </connections>
                 </viewController>

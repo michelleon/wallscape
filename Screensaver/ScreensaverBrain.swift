@@ -24,39 +24,13 @@ class ScreensaverBrain {
     let defaults = NSUserDefaults.standardUserDefaults()
     
     let locationByNum: [Int:String] = [
-        0 : "Broken Hill, New South Wales",
+        0 : "San Diego, California",
         1 : "Iceland",
+        3 : "Ocean Beach, California",
         2 : "Goðafoss, Iceland",
         4 : "Aldeyjarfoss, Iceland",
         5 : "Gullfoss, Iceland"
-//        2 : "Huacachina, Peru",
-//        4 : "Mongolia",
-//        7 : "Dolomites, Italy",
-//        9 : "Paul Smiths, United States",
-//        10 : "Dolomites, Italy",
-//        12 : "Colorado, United States",
-//        13 : "Manali, India",
-//        14 : "Los Flamencos National Reserve, Chile",
-//        15 : "Zermatt",
-//        16 : "Corsica, France",
-//        17 : "Zion National Park, United States",
-//        18 : "Tromsø, Norway",
-//        19 : "Bellingham, United States",
-//        20 : "Banff, Canada",
-//        21 : "Mallorca, Spain",
-//        25 : "Chaldon Herring, United Kingdom",
-//        26 : "Corno Nero, Italy",
-//        27 : "Bryce Canyon, United States",
-//        30 : "Lake Louise, Canada",
-//        31 : "Ebensee, Austria",
-//        32 : "Cascais, Portugal",
-//        33 : "Cascais, Portugal",
-//        34 : "Guincho, Portugal",
-//        35 : "Bournemouth, Vereinigtes Königreich",
-//        36 : "Daytona Beach, United States",
-//        37 : "Praia do Guincho, Portugal",
-//        38 : "Salt Creek Falls, United States",
-//        39 : "Seekofelhütte, Fosses, Italien"
+
     ]
     // REMEMBER TO CONvert hours to +12 depending on AM or PM 
     func setAMPM(sleep: String, wake: String) {
@@ -146,10 +120,12 @@ class ScreensaverBrain {
         // hour is in 24 hr mode
         if hour < 12 {
             return "Good morning!"
-        } else if hour < 17{
-            return "Good afternoon!"
-        } else if hour < 19 {
-            return "Good evening!"
+        } else if hour < 14 {
+            return "Hungover much?"
+        } else if hour < 17 {
+            return "Good afternoon sleepyhead!"
+//        } else if hour < 19 {
+//            return "Good evening!"
         } else {
             return "Waking up a bit late, aren't ya?"
         }
