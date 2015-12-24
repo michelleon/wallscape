@@ -29,7 +29,17 @@ class ScreensaverBrain {
         3 : "Ocean Beach, California",
         2 : "Goðafoss, Iceland",
         4 : "Aldeyjarfoss, Iceland",
-        5 : "Gullfoss, Iceland"
+        5 : "Gullfoss, Iceland",
+        6 : "Lake Tekapo, New Zealand",
+        7 : "Seal Beach, California",
+        8 : "Valley of Fire, Nevada",
+        9 : "Torres del Paine, Chile",
+        10 : "Mount Cook, New Zealand",
+        11 : "La Jolla, California",
+        12 : "Milford Sound, New Zealand",
+        13 : "Machu Picchu, Peru",
+        14 : "Kirkjufell, Iceland",
+        15 : "San Diego, California"
 
     ]
     // REMEMBER TO CONvert hours to +12 depending on AM or PM 
