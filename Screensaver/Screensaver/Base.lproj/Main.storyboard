@@ -129,11 +129,12 @@
                         <outlet property="tempDisplay" destination="uh8-IJ-RXu" id="W5x-ek-yp5"/>
                         <outlet property="time" destination="IK7-aN-qWk" id="VLN-P1-iy3"/>
                         <outlet property="weatherIcon" destination="JyQ-3g-AiN" id="Wjg-Tv-DOT"/>
+                        <segue destination="Xb8-xZ-gK5" kind="presentation" identifier="sleepSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="PiD-iR-8cY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="154"/>
+            <point key="canvasLocation" x="505" y="18"/>
         </scene>
         <!--chooseWakeTime-->
         <scene sceneID="xTK-bV-v99">
@@ -155,15 +156,6 @@
                                 <connections>
                                     <action selector="setSleepHour:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="AY2-JA-hJx"/>
                                     <outlet property="delegate" destination="2LP-sF-AYK" id="5Wb-A0-d8N"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="68" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DgH-K2-7QS">
-                                <rect key="frame" x="997" y="314" width="138" height="78"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="65"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="setSleepMinutes:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="g94-e4-3Us"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X9-qJ-PYw">
@@ -226,7 +218,6 @@
                                 <rect key="frame" x="821" y="581" width="49" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
@@ -256,6 +247,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="68" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DgH-K2-7QS">
+                                <rect key="frame" x="997" y="314" width="138" height="78"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="setSleepMinutes:" destination="2LP-sF-AYK" eventType="editingDidEnd" id="g94-e4-3Us"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -269,12 +269,35 @@
                         <outlet property="wakeHourField" destination="Owy-hR-TEW" id="Wll-hA-QVV"/>
                         <outlet property="wakeMinutesField" destination="8qj-kg-ktg" id="eS0-n8-ikQ"/>
                         <outlet property="wakeToggle" destination="UFb-jw-m8C" id="hsN-52-Via"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="returnToMainView" id="IYG-Rn-R2T"/>
+                        <segue destination="FPA-et-HCf" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMain:" id="for-cF-msl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwb-5s-a4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FPA-et-HCf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2341" y="154"/>
+            <point key="canvasLocation" x="2462" y="26"/>
+        </scene>
+        <!--Sleep Controller-->
+        <scene sceneID="KVq-ZI-KcO">
+            <objects>
+                <viewController id="Xb8-xZ-gK5" customClass="SleepController" customModule="Screensaver" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ukD-Cf-ynn"/>
+                        <viewControllerLayoutGuide type="bottom" id="udJ-lf-peJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="27f-1F-iBG">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="PP8-jc-Ea5" kind="unwind" identifier="wakeUpSegue" unwindAction="unwindToMain:" id="chs-VC-ocf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="crZ-W5-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PP8-jc-Ea5" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="1236"/>
         </scene>
     </scenes>
     <resources>

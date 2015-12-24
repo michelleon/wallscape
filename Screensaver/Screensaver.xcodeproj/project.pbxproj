@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		327F32621C176948002A5FC8 /* chooseWakeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F32611C176948002A5FC8 /* chooseWakeTime.swift */; };
 		329854EB1C12283D0043B923 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329854EA1C12283D0043B923 /* CheckBox.swift */; };
+		32C1F5421C2B9AC000D2CA57 /* SleepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C1F5411C2B9AC000D2CA57 /* SleepController.swift */; };
 		32DC30CF1C0794050079A251 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30CE1C0794050079A251 /* AppDelegate.swift */; };
 		32DC30D11C0794050079A251 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30D01C0794050079A251 /* ViewController.swift */; };
 		32DC30D41C0794050079A251 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DC30D21C0794050079A251 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		327F32611C176948002A5FC8 /* chooseWakeTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chooseWakeTime.swift; sourceTree = "<group>"; };
 		329854EA1C12283D0043B923 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		32C1F5411C2B9AC000D2CA57 /* SleepController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepController.swift; sourceTree = "<group>"; };
 		32DC30CB1C0794050079A251 /* Screensaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Screensaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DC30CE1C0794050079A251 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32DC30D01C0794050079A251 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				32DC30CE1C0794050079A251 /* AppDelegate.swift */,
 				32DC30D01C0794050079A251 /* ViewController.swift */,
 				327F32611C176948002A5FC8 /* chooseWakeTime.swift */,
+				32C1F5411C2B9AC000D2CA57 /* SleepController.swift */,
 				32DC30D21C0794050079A251 /* Main.storyboard */,
 				329854EA1C12283D0043B923 /* CheckBox.swift */,
 				32DC30D51C0794050079A251 /* Assets.xcassets */,
@@ -267,6 +270,7 @@
 				32DC30FA1C07C54E0079A251 /* ScreensaverBrain.swift in Sources */,
 				32DC30D11C0794050079A251 /* ViewController.swift in Sources */,
 				32DC30CF1C0794050079A251 /* AppDelegate.swift in Sources */,
+				32C1F5421C2B9AC000D2CA57 /* SleepController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

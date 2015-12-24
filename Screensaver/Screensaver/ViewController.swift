@@ -21,6 +21,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //     make black a separate view controller
 //     Fix weather bug, if it doesn't work then just don't show weather or show most recent?
 // make the picture black on the remember settings checkbox
+    // allow users to reset alarm during black
 
 
     @IBOutlet weak var time: UILabel!
@@ -40,6 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     let weatherKey = "30b27f2565d58ab08511efd9652d8500"
     var mostRecentLat: Double? = nil
     var mostRecentLong: Double? = nil
+    var isAsleep = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +49,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         greeting.text = ""
         
         // Do any additional setup after loading the view, typically from a nib.
-        updateTime()
+        getTime()
         changeImage()
 //        button.backgroundColor = UIColor.clearColor()
         
@@ -63,7 +65,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // recurring timer calls
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
             target: self,
-            selector: Selector("updateTime"),
+            selector: Selector("getTime"),
             userInfo: nil,
             repeats: true)
         self.timer = NSTimer.scheduledTimerWithTimeInterval(120.0, target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
@@ -83,58 +85,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //    }
     
     func changeImage() {
-        if brain.isSleepTime == false {
-            let imgNum = Int(arc4random_uniform(16))
-            print("chose \(imgNum)")
-            background.image = UIImage(named: "wallpaper\(imgNum).jpg");
-            if let location = brain.getLocation(imgNum) {
-                picLocation.text = location
-                locationPin.hidden = false
-            } else {
-                picLocation.text = ""
-                locationPin.hidden = true
-            }
+        let imgNum = Int(arc4random_uniform(16))
+        print("chose \(imgNum)")
+        background.image = UIImage(named: "wallpaper\(imgNum).jpg");
+        if let location = brain.getLocation(imgNum) {
+            picLocation.text = location
+            locationPin.hidden = false
         } else {
-            print("in the isSleepTime part of changeImage")
             picLocation.text = ""
             locationPin.hidden = true
-            background.image = UIImage(named: "black.jpg")
         }
     }
     
-    func updateTime() {
-        let curr_date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Hour, .Minute, .Month, .Day, .Year], fromDate: curr_date)
-        let hour = components.hour
-        let minutes = components.minute
-        let month = monthByNum[components.month]
-        let day = components.day
-        let year = components.year
-
-        if brain.isSleepTime == true {
-            if (brain.wakeHour != nil) && (brain.wakeMinute != nil) {
-                print("brain wake time \(brain.wakeHour!):\(brain.wakeMinute)")
-                if brain.wakeHour! == hour && (brain.wakeMinute! == minutes) {
-                    print("wakeUp called")
-                    wakeUp()
-                }
-            }
-        } else if let sleepHour = brain.sleepHour {
-            if let sleepMinute = brain.sleepMinute {
-                if (sleepHour == hour) && (sleepMinute == minutes) && (brain.userSetAlarm == true) {
-                    print("goToSleep called first time")
-                    goToSleep()
-                } else {
-                    displayTime(hour, minutes: minutes, month: month, day: day, year: year)
-                }
-            }
-        } else {
-            displayTime(hour, minutes: minutes, month: month, day: day, year: year)
+    func getTime() {
+        brain.updateTime()
+        if brain.isSleepTime == false {
+            displayTime(brain.hour, minutes: brain.minutes, month: brain.month, day: brain.day, year: brain.year)
+        } else if isAsleep == false {
+            goToSleep() // should only be called the first time
         }
     }
     
-    func displayTime(hour: Int, minutes: Int, month: String?, day: Int, year: Int ) {
+    
+    func displayTime(hour: Int, minutes: Int, month: String, day: Int, year: Int ) {
         var displayHour = hour
         if hour > 12 {
             displayHour = hour - 12
@@ -144,54 +117,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         let displayMinutes = brain.formatMinutes(minutes)
         time.text! = "\(displayHour):\(displayMinutes)"
-        date.text! = "\(month!) \(day), \(year)"
+        date.text! = "\(month) \(day), \(year)"
     }
     
     
     
     func goToSleep() {
-        // all UI elements go black
-//        print("goToSleep called")
-        brain.isSleepTime = true
-        time.text! = ""
-        date.text! = ""
-        tempDisplay.text = ""
-        cityDisplay.text = ""
-        weatherIcon.hidden = true
-        locationPin.hidden = true
-        picLocation.text = ""
-        changeImage()
-        
+        isAsleep = true
+        performSegueWithIdentifier("sleepSegue", sender: self)
     }
-    
+
     func wakeUp() {
-//        print("wakeUp called")
+        print("wakeUp called")
         greeting.text = brain.getGreetingByTimeOfDay(brain.wakeHour!)
         brain.resetAlarm()
-        updateTime()
+        getTime()
         changeImage()
         displayWeather(mostRecentLat!, lon: mostRecentLong!)
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(120.0, target: self, selector: Selector("removeGreeting"), userInfo: nil, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("removeGreeting"), userInfo: nil, repeats: false)
     }
     
     func removeGreeting() {
         greeting.text = ""
     }
-    
-    private var monthByNum: [Int:String] = [
-        1 : "January",
-        2 : "February",
-        3 : "March",
-        4 : "April",
-        5 : "May",
-        6 : "June",
-        7 : "July",
-        8 : "August",
-        9 : "September",
-        10 : "October",
-        11 : "November",
-        12 : "December"
-    ]
     
     private var iconByNum: [String:String] = [
         "01d" : "sun.png",
@@ -286,8 +234,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! chooseWakeTime
-        vc.brain = self.brain
+        if brain.isSleepTime == true {
+            let vc = segue.destinationViewController as! SleepController
+            vc.brain = self.brain
+        } else {
+            let vc = segue.destinationViewController as! chooseWakeTime
+            vc.brain = self.brain
+        }
+    }
+
+    @IBAction func unwindToMain(unwindSegue: UIStoryboardSegue) {
+        if let _ = unwindSegue.sourceViewController as? chooseWakeTime {
+            print("Coming from chooseWakeTime")
+        } else if let _ = unwindSegue.sourceViewController as? SleepController {
+            print("Coming from sleep")
+            isAsleep = false
+            wakeUp()
+        }
     }
     
     

@@ -30,13 +30,13 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkBox.setBackgroundImage(UIImage(named: "unchecked_box_2.png"), forState: .Normal)
-        checkBox.setImage(UIImage(named: "checked_box_2.png"), forState: .Selected)
-        checkBox.backgroundColor = UIColor.clearColor()
+        setTextColors()
+        setCheckBox()
+//        checkBox.backgroundColor = UIColor.clearColor()
         sleepToggle.setTitle("PM", forState: .Normal)
         wakeToggle.setTitle("AM", forState: .Normal)
         errorMessage.text = ""
-        self.sleepHourField.delegate = self // assigning delegate
+//        self.sleepHourField.delegate = self // assigning delegate
         if brain!.getUserDefaults() == true {
             sleepHourField.text = "\(brain!.sleepHour!)"
             sleepMinutesField.text = brain!.formatMinutes(brain!.sleepMinute!)
@@ -68,28 +68,27 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
         sender.setTitle(brain!.toggleAMPM(sender.currentTitle!!), forState: .Normal)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        print("called textfieldshouldreturn")
-        //        self.view.endEditing(true)
-        return true
-    }
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        print("called textfieldshouldreturn")
+//        //        self.view.endEditing(true)
+//        return true
+//    }
     
 
     @IBAction func toggleRemember(sender: AnyObject) {
         if let button = sender as? UIButton {
-            print("selected checkbox")
             if userCheckedRememberSettings == false {
-                button.setBackgroundImage(UIImage(named: "checked_box_2.png"), forState: .Normal)
+                print("changing to checked")
+                button.setBackgroundImage(UIImage(named: "black_checked_box_2.png"), forState: .Normal)
                 userCheckedRememberSettings = true
             } else {
                 userCheckedRememberSettings = false
-                button.setBackgroundImage(UIImage(named: "unchecked_box_2.png"), forState: .Normal)
+                print("changing to unchecked")
+                button.setBackgroundImage(UIImage(named: "black_unchecked_box_2.png"), forState: .Normal)
             }
         }
     }
-    
-    
 
     @IBAction func setSleepHour(sender: AnyObject) {
         if let inp = sender as? UITextField {
@@ -128,8 +127,6 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
-
 
     @IBAction func setWakeMinutes(sender: AnyObject) {
         //TODO: FIX ISSUE WHERE IT THINKS ZERO IS NIL!
@@ -166,10 +163,42 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
                 brain!.clearUserDefaults()
             }
             brain!.setAlarm() // change defaults
-            performSegueWithIdentifier("returnToMainView", sender: self)
+            print("about to unwind")
+            performSegueWithIdentifier("unwindToMain", sender: self)
+        }
+    }
+
+    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        if context.nextFocusedView == checkBox {
+            setCheckBoxWhenSelected()
+        } else if context.previouslyFocusedView == checkBox {
+            setCheckBox()
         }
     }
     
+    func setCheckBoxWhenSelected() {
+        if userCheckedRememberSettings == false {
+            checkBox.setBackgroundImage(UIImage(named: "black_unchecked_box_2.png"), forState: .Normal)
+        } else {
+            checkBox.setBackgroundImage(UIImage(named: "black_checked_box_2.png"), forState: .Normal)
+        }
+    }
+    
+    func setCheckBox() {
+        if userCheckedRememberSettings == false {
+            checkBox.setBackgroundImage(UIImage(named: "unchecked_box_2.png"), forState: .Normal)
+        } else {
+            checkBox.setBackgroundImage(UIImage(named: "checked_box_2.png"), forState: .Normal)
+        }
+    }
+
+    func setTextColors() {
+        print("setting text fields to white")
+        sleepHourField.textColor = UIColor.whiteColor()
+        sleepMinutesField.textColor = UIColor.whiteColor()
+        wakeHourField.textColor = UIColor.whiteColor()
+        wakeMinutesField.textColor = UIColor.whiteColor()
+    }
     
 }
 

@@ -20,6 +20,13 @@ class ScreensaverBrain {
     var isSleepTime = false
     var sleepToggle = "PM"
     var wakeToggle = "AM"
+
+    var hour = 0
+    var minutes = 0
+    var month = ""
+    var day = 0
+    var year = 0
+    var timer = NSTimer()
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -42,7 +49,31 @@ class ScreensaverBrain {
         15 : "San Diego, California"
 
     ]
-    // REMEMBER TO CONvert hours to +12 depending on AM or PM 
+
+    private var monthByNum: [Int:String] = [
+        1 : "January",
+        2 : "February",
+        3 : "March",
+        4 : "April",
+        5 : "May",
+        6 : "June",
+        7 : "July",
+        8 : "August",
+        9 : "September",
+        10 : "October",
+        11 : "November",
+        12 : "December"
+    ]
+    
+//    init() {
+//        timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+//            target: self,
+//            selector: Selector("updateTime"),
+//            userInfo: nil,
+//            repeats: true)
+//    }
+    
+    // REMEMBER TO CONvert hours to +12 depending on AM or PM
     func setAMPM(sleep: String, wake: String) {
         self.sleepToggle = sleep
         self.wakeToggle = wake
@@ -63,6 +94,42 @@ class ScreensaverBrain {
         }
     }
     
+    func updateTime() {
+        let curr_date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Hour, .Minute, .Month, .Day, .Year], fromDate: curr_date)
+        hour = components.hour
+        minutes = components.minute
+        month = monthByNum[components.month]!
+        day = components.day
+        year = components.year
+        
+        if isSleepTime == true {
+            if (wakeHour != nil) && (wakeMinute != nil) {
+//                print("brain wake time \(wakeHour!):\(wakeMinute)")
+                if wakeHour! == hour && (wakeMinute! == minutes) {
+                    print("time to wake up")
+                    wakeUp()
+//                    wakeUp() //perform segue
+                }
+            }
+        } else if let sleepHour = sleepHour {
+            if let sleepMinute = sleepMinute {
+                if (sleepHour == hour) && (sleepMinute == minutes) && (userSetAlarm == true) {
+                    print("goToSleep called first time")
+                    goToSleep()
+                }
+            }
+        }
+    }
+
+    func wakeUp() {
+        isSleepTime = false
+    }
+    
+    func goToSleep() {
+        isSleepTime = true
+    }
     
     func getUserDefaults() -> Bool {
         // return user defaults otherwise nil
@@ -146,7 +213,6 @@ class ScreensaverBrain {
         self.sleepMinute = nil
         self.wakeHour = nil
         self.wakeMinute = nil
-        self.isSleepTime = false
 
     }
     
