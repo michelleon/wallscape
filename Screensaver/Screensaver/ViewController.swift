@@ -20,8 +20,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //     make funny greetings
 //     make black a separate view controller
 //     Fix weather bug, if it doesn't work then just don't show weather or show most recent?
-// make the picture black on the remember settings checkbox
-    // allow users to reset alarm during black
+    // allow users to reset alarm during black by pressing menu button
 
 
     @IBOutlet weak var time: UILabel!
@@ -42,6 +41,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var mostRecentLat: Double? = nil
     var mostRecentLong: Double? = nil
     var isAsleep = false
+    var tapRecognizer: UITapGestureRecognizer!
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +54,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         getTime()
         changeImage()
 //        button.backgroundColor = UIColor.clearColor()
+//        tapRecognizer = UITapGestureRecognizer(target: self, action: "tapped:")
+        tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleMenuPress:"))
+        tapRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.Menu.rawValue)]
+        self.view.addGestureRecognizer(tapRecognizer)
         
         //Initializing location services
         self.locationManager.requestWhenInUseAuthorization()
@@ -83,6 +89,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //        //context.nextFocusedView.b
 //        print("Button Focused");
 //    }
+
+    func handleMenuPress(sender: UITapGestureRecognizer) {
+        performSegueWithIdentifier("setAlarmSegue", sender: self)
+    }
     
     func changeImage() {
         let imgNum = Int(arc4random_uniform(16))

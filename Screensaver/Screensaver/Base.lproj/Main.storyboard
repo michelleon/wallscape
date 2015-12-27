@@ -82,7 +82,7 @@
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="alarm_clock"/>
                                 <connections>
-                                    <segue destination="2LP-sF-AYK" kind="presentation" modalPresentationStyle="overFullScreen" id="799-5A-6pA"/>
+                                    <segue destination="2LP-sF-AYK" kind="presentation" identifier="setAlarmSegue" modalPresentationStyle="overFullScreen" id="799-5A-6pA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waking up a bit late, aren't ya?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIE-Dz-JO1">
