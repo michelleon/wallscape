@@ -12,15 +12,12 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     //TODO
-//     Change focus animation
+//     Change focus animation on alarm, make it black
 //     Get rid of next on keyboard for uitext fields
 //     fade to black at sleep with text good night for 30 seconds
 //     fade to light at wake with text good morning for 30 seconds
 //     set text field color to white
-//     make funny greetings
-//     make black a separate view controller
 //     Fix weather bug, if it doesn't work then just don't show weather or show most recent?
-    // allow users to reset alarm during black by pressing menu button
 
 
     @IBOutlet weak var time: UILabel!
@@ -139,10 +136,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     func wakeUp() {
         print("wakeUp called")
-        greeting.text = brain.getGreetingByTimeOfDay(brain.wakeHour!)
         brain.resetAlarm()
+        brain.wakeUp()
+        isAsleep = false
         getTime()
-        changeImage()
+        greeting.text = brain.getGreetingByTimeOfDay(brain.hour)
+//        changeImage()
         displayWeather(mostRecentLat!, lon: mostRecentLong!)
         self.timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("removeGreeting"), userInfo: nil, repeats: false)
     }
@@ -258,11 +257,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             print("Coming from chooseWakeTime")
         } else if let _ = unwindSegue.sourceViewController as? SleepController {
             print("Coming from sleep")
-            isAsleep = false
             wakeUp()
         }
     }
     
+    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        if alarmClockButton.focused == true {
+            makeAlarmButtonBlack()
+        } else if context.previouslyFocusedView == alarmClockButton {
+            makeAlarmButtonWhite()
+        }
+    }
+    
+    func makeAlarmButtonBlack() {
+        alarmClockButton.setBackgroundImage(UIImage(named: "black_alarm_clock"), forState: .Normal)
+        alarmClockButton.setBackgroundImage(UIImage(named: "black_alarm_clock"), forState: .Selected)
+    }
+    
+    func makeAlarmButtonWhite() {
+        alarmClockButton.setBackgroundImage(UIImage(named: "alarm_clock"), forState: .Normal)
+        alarmClockButton.setBackgroundImage(UIImage(named: "alarm_clock"), forState: .Selected)
+    }
     
 }
 

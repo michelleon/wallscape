@@ -14,6 +14,7 @@ class SleepController: UIViewController {
     
     var timer = NSTimer()
     var brain: ScreensaverBrain? = nil
+    var tapRecognizer: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,9 @@ class SleepController: UIViewController {
             selector: Selector("getTime"),
             userInfo: nil,
             repeats: true)
+        tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleMenuPress:"))
+        tapRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.Menu.rawValue)]
+        self.view.addGestureRecognizer(tapRecognizer)
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,6 +50,19 @@ class SleepController: UIViewController {
     
     func wakeUp() {
         performSegueWithIdentifier("wakeUpSegue", sender: self)
+    }
+    
+    func handleMenuPress(sender: UITapGestureRecognizer) {
+        let actionSheetController: UIAlertController = UIAlertController(title: "Do you want to wake up early?", message: "This will reset your alarm", preferredStyle: .Alert)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+        }
+        let confirmAction: UIAlertAction = UIAlertAction(title: "Confirm", style: .Default) {
+            action -> Void in
+            self.wakeUp()
+        }
+        actionSheetController.addAction(cancelAction)
+        actionSheetController.addAction(confirmAction)
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

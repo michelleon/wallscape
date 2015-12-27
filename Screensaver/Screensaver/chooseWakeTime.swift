@@ -32,7 +32,6 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         setTextColors()
         setCheckBox()
-//        checkBox.backgroundColor = UIColor.clearColor()
         sleepToggle.setTitle("PM", forState: .Normal)
         wakeToggle.setTitle("AM", forState: .Normal)
         errorMessage.text = ""
