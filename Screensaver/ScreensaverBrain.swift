@@ -65,34 +65,11 @@ class ScreensaverBrain {
         12 : "December"
     ]
     
-//    init() {
-//        timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-//            target: self,
-//            selector: Selector("updateTime"),
-//            userInfo: nil,
-//            repeats: true)
-//    }
     
-    // REMEMBER TO CONvert hours to +12 depending on AM or PM
     func setAMPM(sleep: String, wake: String) {
         self.sleepToggle = sleep
         self.wakeToggle = wake
     }
-
-//    func setTimes(time: Int, field: String) -> Bool {
-//        switch field {
-//        case "sleepHour" :
-//            return self.setSleepHour(time)
-//        case "sleepMinute" :
-//            return self.setSleepMinutes(time)
-//        case "wakeHour" :
-//            return self.setWakeHour(time)
-//        case "wakeMinute" :
-//            return self.setWakeMinutes(time)
-//        default:
-//            return false
-//        }
-//    }
     
     func updateTime() {
         let curr_date = NSDate()
@@ -106,11 +83,9 @@ class ScreensaverBrain {
         
         if isSleepTime == true {
             if (wakeHour != nil) && (wakeMinute != nil) {
-//                print("brain wake time \(wakeHour!):\(wakeMinute)")
                 if wakeHour! == hour && (wakeMinute! == minutes) {
                     print("time to wake up")
                     wakeUp()
-//                    wakeUp() //perform segue
                 }
             }
         } else if let sleepHour = sleepHour {

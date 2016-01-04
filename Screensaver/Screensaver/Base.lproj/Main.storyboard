@@ -396,6 +396,8 @@
                     <connections>
                         <outlet property="doneButton" destination="uMV-zv-SGm" id="CY8-3h-HGn"/>
                         <outlet property="hour" destination="XHV-rg-2qv" id="gJ7-vu-nVC"/>
+                        <outlet property="hourPicker" destination="nXd-0P-PBU" id="nkS-Pw-inh"/>
+                        <outlet property="minutePicker" destination="zOI-wB-xxK" id="VUX-I4-GNa"/>
                         <outlet property="minutes" destination="3YP-Cq-pLc" id="ajg-JL-9Cy"/>
                         <segue destination="NF8-m0-7FM" kind="unwind" identifier="unwindToAlarm" unwindAction="unwindToAlarm:" id="xSa-jC-pbZ"/>
                     </connections>

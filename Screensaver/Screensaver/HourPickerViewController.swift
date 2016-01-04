@@ -41,7 +41,6 @@ class HourPickerViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("cell for row at index path called")
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         cell.textLabel?.textColor = UIColor.blackColor()
         cell.textLabel?.text = "\(convertToHour(indexPath.row))"
@@ -50,7 +49,6 @@ class HourPickerViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("clicked \(indexPath.row)")
-//        print(self.parentViewController)
         if let vc = self.parentViewController as? TimePicker {
             vc.hour.text = "\(convertToHour(indexPath.row))"
         }

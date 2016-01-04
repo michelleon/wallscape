@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		3266B28C1C30CC7C00E9DBD5 /* TimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 		3266B2901C30DC1F00E9DBD5 /* HourPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourPickerViewController.swift; sourceTree = "<group>"; };
-		3266B2921C30EBC600E9DBD5 /* MinutePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MinutePickerViewController.swift; path = Screensaver/MinutePickerViewController.swift; sourceTree = "<group>"; };
+		3266B2921C30EBC600E9DBD5 /* MinutePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutePickerViewController.swift; sourceTree = "<group>"; };
 		327F32611C176948002A5FC8 /* chooseWakeTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chooseWakeTime.swift; sourceTree = "<group>"; };
 		329854EA1C12283D0043B923 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		32C1F5411C2B9AC000D2CA57 /* SleepController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepController.swift; sourceTree = "<group>"; };
@@ -89,7 +89,6 @@
 		32DC30C21C0794050079A251 = {
 			isa = PBXGroup;
 			children = (
-				3266B2921C30EBC600E9DBD5 /* MinutePickerViewController.swift */,
 				32DC30F91C07C54E0079A251 /* ScreensaverBrain.swift */,
 				32DC30CD1C0794050079A251 /* Screensaver */,
 				32DC30DF1C0794060079A251 /* ScreensaverTests */,
@@ -111,6 +110,7 @@
 		32DC30CD1C0794050079A251 /* Screensaver */ = {
 			isa = PBXGroup;
 			children = (
+				3266B2921C30EBC600E9DBD5 /* MinutePickerViewController.swift */,
 				32DC30CE1C0794050079A251 /* AppDelegate.swift */,
 				32DC30D01C0794050079A251 /* ViewController.swift */,
 				327F32611C176948002A5FC8 /* chooseWakeTime.swift */,

@@ -19,11 +19,13 @@ class TimePicker: UIViewController {
     var minuteReference: UIButton!
     var parentHour: String!
     var parentMinute: String!
-//    var defaultFocus: UIContainer
+    var didComeFromHour = true
     
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var hour: UILabel!
     @IBOutlet weak var minutes: UILabel!
+    @IBOutlet weak var hourPicker: UIView!
+    @IBOutlet weak var minutePicker: UIView!
     
     override func viewDidLoad() {
         setLabels()
@@ -59,6 +61,16 @@ class TimePicker: UIViewController {
             if segue.identifier == "minuteEmbeddedSegue" {
                 self.minuteVC = vc
                 print("minuteEmbeddedSegue occurred")
+            }
+        }
+    }
+    
+    override var preferredFocusedView: UIView? {
+        get {
+            if didComeFromHour == true {
+                return self.hourPicker
+            } else {
+                return self.minutePicker
             }
         }
     }

@@ -46,7 +46,6 @@ class MinutePickerViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("clicked \(indexPath.row)")
-        //        print(self.parentViewController)
         if let vc = self.parentViewController as? TimePicker {
             vc.minutes.text = convertToMinute(indexPath.row)
         }

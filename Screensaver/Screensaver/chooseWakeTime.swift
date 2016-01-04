@@ -15,11 +15,7 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var checkBox: UIButton!
     @IBOutlet weak var errorMessage: UILabel!
-//    @IBOutlet weak var wakeMinutesField: UITextField!
-//    @IBOutlet weak var wakeHourField: UITextField!
-//    @IBOutlet weak var sleepMinutesField: UITextField!
-//    @IBOutlet weak var sleepHourField: UITextField!
-    
+
     @IBOutlet weak var sleepMinutesField: UIButton!
     @IBOutlet weak var sleepHourField: UIButton!
     @IBOutlet weak var wakeHourField: UIButton!
@@ -88,7 +84,6 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
 
     
     @IBAction func setAlarm(sender: AnyObject) {
@@ -155,12 +150,16 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
             vc.brain = self.brain
             if segue.identifier == "sleepHourSegue" {
                 sleepPropagation(vc)
+                vc.didComeFromHour = true
             } else if segue.identifier == "sleepMinuteSegue" {
                 sleepPropagation(vc)
+                vc.didComeFromHour = false
             } else if segue.identifier == "wakeHourSegue" {
                 wakePropagation(vc)
+                vc.didComeFromHour = true
             } else if segue.identifier == "wakeMinuteSegue" {
                 wakePropagation(vc)
+                vc.didComeFromHour = false
             }
         }
     }
