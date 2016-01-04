@@ -79,20 +79,20 @@ class ScreensaverBrain {
         self.wakeToggle = wake
     }
 
-    func setTimes(time: Int, field: String) -> Bool {
-        switch field {
-        case "sleepHour" :
-            return self.setSleepHour(time)
-        case "sleepMinute" :
-            return self.setSleepMinutes(time)
-        case "wakeHour" :
-            return self.setWakeHour(time)
-        case "wakeMinute" :
-            return self.setWakeMinutes(time)
-        default:
-            return false
-        }
-    }
+//    func setTimes(time: Int, field: String) -> Bool {
+//        switch field {
+//        case "sleepHour" :
+//            return self.setSleepHour(time)
+//        case "sleepMinute" :
+//            return self.setSleepMinutes(time)
+//        case "wakeHour" :
+//            return self.setWakeHour(time)
+//        case "wakeMinute" :
+//            return self.setWakeMinutes(time)
+//        default:
+//            return false
+//        }
+//    }
     
     func updateTime() {
         let curr_date = NSDate()
@@ -171,7 +171,14 @@ class ScreensaverBrain {
     }
     
     
-    func setAlarm() {
+    func setAlarm(sleepHour: Int, sleepMinute: Int, wakeHour: Int, wakeMinute: Int) {
+        // set times from input
+        setSleepHour(sleepHour)
+        setSleepMinutes(sleepMinute)
+        setWakeHour(wakeHour)
+        setWakeMinutes(wakeMinute)
+        
+        // change to military time
         if self.sleepToggle == "AM" {
             if self.sleepHour == 12 {
                 self.sleepHour = 0
@@ -197,8 +204,8 @@ class ScreensaverBrain {
         // hour is in 24 hr mode
         if hour < 12 {
             return "Good morning!"
-        } else if hour < 14 {
-            return "Hungover much?"
+//        } else if hour < 14 {
+//            return "Hungover much?"
         } else if hour < 17 {
             return "Good afternoon sleepyhead!"
 //        } else if hour < 19 {
@@ -223,7 +230,18 @@ class ScreensaverBrain {
             return "AM"
         }
     }
-
+    
+    func formatHour(militaryHour: Int) -> String {
+        var hour = militaryHour
+        if militaryHour > 12 {
+            hour = militaryHour - 12
+        }
+        if militaryHour == 0 {
+            hour = 12
+        }
+        return "\(hour)"
+    }
+    
     func formatMinutes(minutes: Int) -> String {
         var retval: String
         if minutes < 10 {
