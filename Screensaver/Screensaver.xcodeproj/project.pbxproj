@@ -20,6 +20,7 @@
 		32DC30E11C0794060079A251 /* ScreensaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30E01C0794060079A251 /* ScreensaverTests.swift */; };
 		32DC30EC1C0794060079A251 /* ScreensaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30EB1C0794060079A251 /* ScreensaverUITests.swift */; };
 		32DC30FA1C07C54E0079A251 /* ScreensaverBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC30F91C07C54E0079A251 /* ScreensaverBrain.swift */; };
+		32EBC1961C3F916C005592F8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EBC1951C3F916C005592F8 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		32DC30EB1C0794060079A251 /* ScreensaverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensaverUITests.swift; sourceTree = "<group>"; };
 		32DC30ED1C0794060079A251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32DC30F91C07C54E0079A251 /* ScreensaverBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreensaverBrain.swift; sourceTree = "<group>"; };
+		32EBC1951C3F916C005592F8 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				3266B28C1C30CC7C00E9DBD5 /* TimePicker.swift */,
 				329854EA1C12283D0043B923 /* CheckBox.swift */,
 				32DC30D51C0794050079A251 /* Assets.xcassets */,
+				32EBC1951C3F916C005592F8 /* CustomButton.swift */,
 				32DC30D71C0794050079A251 /* Info.plist */,
 			);
 			path = Screensaver;
@@ -278,6 +281,7 @@
 				329854EB1C12283D0043B923 /* CheckBox.swift in Sources */,
 				327F32621C176948002A5FC8 /* chooseWakeTime.swift in Sources */,
 				3266B28D1C30CC7C00E9DBD5 /* TimePicker.swift in Sources */,
+				32EBC1961C3F916C005592F8 /* CustomButton.swift in Sources */,
 				3266B2911C30DC1F00E9DBD5 /* HourPickerViewController.swift in Sources */,
 				32DC30FA1C07C54E0079A251 /* ScreensaverBrain.swift in Sources */,
 				32DC30D11C0794050079A251 /* ViewController.swift in Sources */,

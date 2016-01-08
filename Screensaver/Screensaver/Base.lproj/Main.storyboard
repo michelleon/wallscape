@@ -142,31 +142,6 @@
                                     <action selector="setAlarm:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="kYK-fM-kCL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4f-K9-7Fa">
-                                <rect key="frame" x="867" y="615" width="382" height="49"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="y4f-K9-7Fa" secondAttribute="height" multiplier="382:49" id="zv4-ln-ZN0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snr-3W-d0J">
-                                <rect key="frame" x="802" y="615" width="49" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="GrU-Ev-VHf"/>
-                                    <constraint firstAttribute="width" secondItem="Snr-3W-d0J" secondAttribute="height" multiplier="1:1" id="Kru-s9-3Fx"/>
-                                    <constraint firstAttribute="width" constant="49" id="pUU-Yo-Idp"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleRemember:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="JEf-OO-oby"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8i-tG-OOJ">
                                 <rect key="frame" x="1141" y="351" width="108" height="78"/>
                                 <constraints>
@@ -257,24 +232,36 @@
                                     <segue destination="V2E-Bo-my2" kind="presentation" identifier="sleepHourSegue" id="74C-hm-7Ib"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snr-3W-d0J" customClass="CustomButton" customModule="Screensaver" customModuleProvider="target">
+                                <rect key="frame" x="822" y="615" width="277" height="54"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="Tr8-hw-gaI"/>
+                                    <constraint firstAttribute="width" constant="277" id="VQv-Sh-avk"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="remember_button_white_unchecked">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleRemember:" destination="2LP-sF-AYK" eventType="primaryActionTriggered" id="JEf-OO-oby"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UFb-jw-m8C" firstAttribute="width" secondItem="Q8i-tG-OOJ" secondAttribute="width" id="0L5-U4-XAT"/>
                             <constraint firstItem="UFb-jw-m8C" firstAttribute="height" secondItem="Q8i-tG-OOJ" secondAttribute="height" id="0Tx-Z5-asY"/>
                             <constraint firstItem="4rI-2a-4Aq" firstAttribute="centerX" secondItem="7X9-qJ-PYw" secondAttribute="centerX" id="1Md-FH-ivv"/>
-                            <constraint firstItem="Snr-3W-d0J" firstAttribute="leading" secondItem="9Gt-F8-6SJ" secondAttribute="leading" id="2AQ-yp-U6J"/>
-                            <constraint firstItem="y4f-K9-7Fa" firstAttribute="leading" secondItem="Snr-3W-d0J" secondAttribute="trailing" constant="16" id="2R4-uV-qng"/>
                             <constraint firstItem="Q8i-tG-OOJ" firstAttribute="leading" secondItem="QFB-bq-2wD" secondAttribute="trailing" constant="23" id="61g-G0-CuI"/>
                             <constraint firstItem="SxO-aD-YSq" firstAttribute="height" secondItem="9Gt-F8-6SJ" secondAttribute="height" id="6FF-Bc-L9B"/>
                             <constraint firstItem="UtB-xB-eUf" firstAttribute="height" secondItem="Nvt-fM-Lo2" secondAttribute="height" id="6va-EJ-cy5"/>
-                            <constraint firstItem="Snr-3W-d0J" firstAttribute="top" secondItem="9Gt-F8-6SJ" secondAttribute="bottom" constant="36" id="7La-lt-pMi"/>
                             <constraint firstItem="UtB-xB-eUf" firstAttribute="centerY" secondItem="Mle-UJ-3FY" secondAttribute="centerY" id="7iH-Cc-7tE"/>
                             <constraint firstItem="7X9-qJ-PYw" firstAttribute="leading" secondItem="AiT-nH-jdO" secondAttribute="trailing" constant="8" id="7oZ-pO-TRA"/>
-                            <constraint firstItem="y4f-K9-7Fa" firstAttribute="height" secondItem="Snr-3W-d0J" secondAttribute="height" id="7z9-OL-w0R"/>
                             <constraint firstItem="9Gt-F8-6SJ" firstAttribute="centerY" secondItem="UtB-xB-eUf" secondAttribute="centerY" id="8AB-5V-aqX"/>
                             <constraint firstItem="7uj-op-3gJ" firstAttribute="top" secondItem="16j-j1-bPp" secondAttribute="bottom" constant="136" id="8Dr-xg-F8J"/>
                             <constraint firstItem="M3x-9F-5TF" firstAttribute="centerX" secondItem="Mle-UJ-3FY" secondAttribute="centerX" id="8hG-EQ-vrZ"/>
+                            <constraint firstItem="Snr-3W-d0J" firstAttribute="centerX" secondItem="Mle-UJ-3FY" secondAttribute="centerX" id="9FI-fW-e5X"/>
                             <constraint firstItem="Q8i-tG-OOJ" firstAttribute="height" secondItem="QFB-bq-2wD" secondAttribute="height" id="Asn-iP-H3G"/>
                             <constraint firstItem="SxO-aD-YSq" firstAttribute="width" secondItem="9Gt-F8-6SJ" secondAttribute="width" id="GW9-oY-AbG"/>
                             <constraint firstItem="9Gt-F8-6SJ" firstAttribute="height" secondItem="UtB-xB-eUf" secondAttribute="height" id="J5O-ge-IBX"/>
@@ -282,11 +269,11 @@
                             <constraint firstItem="Nvt-fM-Lo2" firstAttribute="leading" secondItem="UtB-xB-eUf" secondAttribute="leading" id="KCI-IT-qmz"/>
                             <constraint firstItem="UtB-xB-eUf" firstAttribute="width" secondItem="Nvt-fM-Lo2" secondAttribute="width" id="LzW-I0-vUU"/>
                             <constraint firstItem="4rI-2a-4Aq" firstAttribute="top" secondItem="7X9-qJ-PYw" secondAttribute="bottom" constant="84" id="MeH-Tw-0EL"/>
+                            <constraint firstItem="M3x-9F-5TF" firstAttribute="top" secondItem="Snr-3W-d0J" secondAttribute="bottom" constant="24" id="SmA-MI-2cv"/>
                             <constraint firstItem="UtB-xB-eUf" firstAttribute="height" secondItem="Nvt-fM-Lo2" secondAttribute="height" id="V6h-7N-EYD"/>
                             <constraint firstItem="9Gt-F8-6SJ" firstAttribute="top" secondItem="AiT-nH-jdO" secondAttribute="bottom" constant="72" id="VLD-aC-egs"/>
                             <constraint firstItem="4rI-2a-4Aq" firstAttribute="leading" secondItem="9Gt-F8-6SJ" secondAttribute="trailing" constant="8" id="YmM-v4-cxB"/>
                             <constraint firstItem="SxO-aD-YSq" firstAttribute="centerY" secondItem="UFb-jw-m8C" secondAttribute="centerY" id="aB4-0m-FHx"/>
-                            <constraint firstItem="M3x-9F-5TF" firstAttribute="top" secondItem="y4f-K9-7Fa" secondAttribute="bottom" constant="29" id="aWI-cx-MZh"/>
                             <constraint firstItem="Q8i-tG-OOJ" firstAttribute="height" secondItem="Nvt-fM-Lo2" secondAttribute="height" id="cNP-7D-U4F"/>
                             <constraint firstItem="QFB-bq-2wD" firstAttribute="width" secondItem="AiT-nH-jdO" secondAttribute="width" id="cqA-uF-5ib"/>
                             <constraint firstItem="9Gt-F8-6SJ" firstAttribute="leading" secondItem="UtB-xB-eUf" secondAttribute="trailing" constant="18" id="d1S-X0-9f9"/>
@@ -294,14 +281,13 @@
                             <constraint firstItem="QFB-bq-2wD" firstAttribute="centerY" secondItem="Q8i-tG-OOJ" secondAttribute="centerY" id="eB1-hH-YGn"/>
                             <constraint firstItem="SxO-aD-YSq" firstAttribute="leading" secondItem="4rI-2a-4Aq" secondAttribute="trailing" constant="8" id="elf-gI-xXY"/>
                             <constraint firstItem="UFb-jw-m8C" firstAttribute="height" secondItem="SxO-aD-YSq" secondAttribute="height" id="fGc-n8-fMh"/>
+                            <constraint firstItem="Snr-3W-d0J" firstAttribute="top" secondItem="9Gt-F8-6SJ" secondAttribute="bottom" constant="36" id="g8c-Vj-pt2"/>
                             <constraint firstItem="9Gt-F8-6SJ" firstAttribute="centerY" secondItem="4rI-2a-4Aq" secondAttribute="centerY" id="hTI-Q5-Exh"/>
                             <constraint firstItem="UFb-jw-m8C" firstAttribute="leading" secondItem="SxO-aD-YSq" secondAttribute="trailing" constant="23" id="hZj-Rj-i1T"/>
                             <constraint firstItem="M3x-9F-5TF" firstAttribute="centerX" secondItem="7X9-qJ-PYw" secondAttribute="centerX" id="jB6-7l-uw9"/>
                             <constraint firstItem="4rI-2a-4Aq" firstAttribute="centerY" secondItem="UtB-xB-eUf" secondAttribute="centerY" id="jDu-h2-AbL"/>
-                            <constraint firstItem="y4f-K9-7Fa" firstAttribute="centerY" secondItem="Snr-3W-d0J" secondAttribute="centerY" id="jcv-aT-9ET"/>
                             <constraint firstItem="UFb-jw-m8C" firstAttribute="centerY" secondItem="UtB-xB-eUf" secondAttribute="centerY" id="mCg-ul-nfB"/>
                             <constraint firstItem="UFb-jw-m8C" firstAttribute="height" secondItem="Nvt-fM-Lo2" secondAttribute="height" id="o6W-LM-D7s"/>
-                            <constraint firstItem="y4f-K9-7Fa" firstAttribute="top" secondItem="4rI-2a-4Aq" secondAttribute="bottom" constant="42" id="oTg-hT-nxT"/>
                             <constraint firstItem="AiT-nH-jdO" firstAttribute="centerY" secondItem="Nvt-fM-Lo2" secondAttribute="centerY" id="oV9-OQ-9xC"/>
                             <constraint firstItem="7X9-qJ-PYw" firstAttribute="centerY" secondItem="Nvt-fM-Lo2" secondAttribute="centerY" id="sDW-bX-t54"/>
                             <constraint firstItem="16j-j1-bPp" firstAttribute="centerX" secondItem="Mle-UJ-3FY" secondAttribute="centerX" id="tKs-2c-nFe"/>
@@ -531,6 +517,7 @@
     <resources>
         <image name="alarm_clock" width="204" height="204"/>
         <image name="location_pin" width="400" height="400"/>
+        <image name="remember_button_white_unchecked" width="888" height="168"/>
         <image name="sun" width="190" height="184"/>
         <image name="wallpaper5" width="1700" height="1126"/>
     </resources>

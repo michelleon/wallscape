@@ -132,17 +132,17 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
     
     func setCheckBoxWhenSelected() {
         if userCheckedRememberSettings == false {
-            checkBox.setBackgroundImage(UIImage(named: "black_unchecked_box_2.png"), forState: .Normal)
+            checkBox.setImage(UIImage(named: "remember_button_black_unchecked.png"), forState: .Normal)
         } else {
-            checkBox.setBackgroundImage(UIImage(named: "black_checked_box_2.png"), forState: .Normal)
+            checkBox.setImage(UIImage(named: "remember_button_black_checked.png"), forState: .Normal)
         }
     }
     
     func setCheckBox() {
         if userCheckedRememberSettings == false {
-            checkBox.setBackgroundImage(UIImage(named: "unchecked_box_2.png"), forState: .Normal)
+            checkBox.setImage(UIImage(named: "remember_button_white_unchecked.png"), forState: .Normal)
         } else {
-            checkBox.setBackgroundImage(UIImage(named: "checked_box_2.png"), forState: .Normal)
+            checkBox.setImage(UIImage(named: "remember_button_white_checked.png"), forState: .Normal)
         }
     }
     
