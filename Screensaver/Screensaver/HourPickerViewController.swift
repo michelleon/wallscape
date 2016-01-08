@@ -50,6 +50,8 @@ class HourPickerViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("clicked \(indexPath.row)")
         if let vc = self.parentViewController as? TimePicker {
+            vc.didComeFromHour = false
+            vc.setNeedsFocusUpdate()
             vc.hour.text = "\(convertToHour(indexPath.row))"
         }
     }

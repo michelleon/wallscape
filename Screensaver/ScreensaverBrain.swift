@@ -20,6 +20,7 @@ class ScreensaverBrain {
     var isSleepTime = false
     var sleepToggle = "PM"
     var wakeToggle = "AM"
+    var newAlarm = false
 
     var hour = 0
     var minutes = 0

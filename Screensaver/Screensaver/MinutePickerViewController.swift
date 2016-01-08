@@ -48,6 +48,9 @@ class MinutePickerViewController: UITableViewController {
         print("clicked \(indexPath.row)")
         if let vc = self.parentViewController as? TimePicker {
             vc.minutes.text = convertToMinute(indexPath.row)
+            vc.needsUpdate = true
+            vc.setNeedsFocusUpdate()
+//            vc.updateFocusIfNeeded()
         }
     }
     

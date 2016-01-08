@@ -44,6 +44,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.sharedApplication().idleTimerDisabled = true
+        
         // Set up UI Elements
         greeting.text = ""
         
@@ -255,6 +257,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func unwindToMain(unwindSegue: UIStoryboardSegue) {
         if let _ = unwindSegue.sourceViewController as? chooseWakeTime {
             print("Coming from chooseWakeTime")
+            if brain.newAlarm == true {
+                greeting.text = "Alarm set for \(brain.formatHour(brain.sleepHour!)):\(brain.formatMinutes(brain.sleepMinute!))"
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("removeGreeting"), userInfo: nil, repeats: false)
+                brain.newAlarm = false
+            }
         } else if let _ = unwindSegue.sourceViewController as? SleepController {
             print("Coming from sleep")
             wakeUp()

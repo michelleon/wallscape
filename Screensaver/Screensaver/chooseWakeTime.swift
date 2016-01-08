@@ -45,8 +45,14 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
             wakeMinutesField.setTitle(brain.formatMinutes(brain.wakeMinute!), forState: .Normal)
             sleepToggle.setTitle(brain.sleepToggle, forState: .Normal)
             wakeToggle.setTitle(brain.wakeToggle, forState: .Normal)
-            
         }
+            
+//        } else {
+//            sleepHourField.setTitle("", forState: .Normal)
+//            sleepMinutesField.setTitle("", forState: .Normal)
+//            wakeHourField.setTitle("", forState: .Normal)
+//            wakeMinutesField.setTitle("", forState: .Normal)
+//        }
     }
     
     override var preferredFocusedView: UIView? {
@@ -89,14 +95,17 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
     @IBAction func setAlarm(sender: AnyObject) {
         // check if user set times for all fields
         brain!.setAMPM(sleepToggle.currentTitle!, wake: wakeToggle.currentTitle!)
-        if sleepHourField.titleLabel == "" || sleepMinutesField.titleLabel == "" || wakeHourField.titleLabel == "" || wakeMinutesField.titleLabel == "" {
-            errorMessage.text = "One or more of the fields is empty"
-        } else {
-            let sleepHour = NSNumberFormatter().numberFromString((sleepHourField.titleLabel?.text)!)?.integerValue
-            let sleepMinute = NSNumberFormatter().numberFromString((sleepMinutesField.titleLabel?.text)!)?.integerValue
-            let wakeHour = NSNumberFormatter().numberFromString((wakeHourField.titleLabel?.text)!)?.integerValue
-            let wakeMinute = NSNumberFormatter().numberFromString((wakeMinutesField.titleLabel?.text)!)?.integerValue
-            brain!.setAlarm(sleepHour!, sleepMinute: sleepMinute!, wakeHour: wakeHour!, wakeMinute: wakeMinute!)
+//        if sleepHourField.titleLabel!.text == "" || sleepMinutesField.titleLabel!.text == "" || wakeHourField.titleLabel!.text == "" || wakeMinutesField.titleLabel!.text == "" {
+//            errorMessage.text = "One or more of the fields is empty"
+//        } else {
+        if let sh = sleepHourField.titleLabel?.text, let sm = sleepMinutesField.titleLabel?.text,let wh = wakeHourField.titleLabel?.text, let wm = wakeMinutesField.titleLabel?.text
+        {
+            let sleepHour = NSNumberFormatter().numberFromString(sh)?.integerValue
+            let sleepMinute = NSNumberFormatter().numberFromString(sm)?.integerValue
+            let wakeHour = NSNumberFormatter().numberFromString(wh)?.integerValue
+            let wakeMinute = NSNumberFormatter().numberFromString(wm)?.integerValue
+            brain.setAlarm(sleepHour!, sleepMinute: sleepMinute!, wakeHour: wakeHour!, wakeMinute: wakeMinute!)
+            brain.newAlarm = true
             print("set to sleep at \(brain.sleepHour!):\(brain.sleepMinute!) and wake at \(brain.wakeHour!):\(brain.wakeMinute!)")
             print("userCheckedRememberSettings = \(userCheckedRememberSettings)")
             if userCheckedRememberSettings == true {
@@ -106,6 +115,8 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
             }
             print("about to unwind")
             performSegueWithIdentifier("unwindToMain", sender: self)
+        } else {
+            errorMessage.text = "One or more of the fields is empty"
         }
     }
 

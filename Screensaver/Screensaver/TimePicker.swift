@@ -20,6 +20,7 @@ class TimePicker: UIViewController {
     var parentHour: String!
     var parentMinute: String!
     var didComeFromHour = true
+    var needsUpdate = false
     
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var hour: UILabel!
@@ -36,9 +37,6 @@ class TimePicker: UIViewController {
             super.didReceiveMemoryWarning()
     }
     
-    // propagate the selection fromt he picker up to this
-    // display selection in label
-    // propagate final selection when you hit the done button to the previous and do the unwind
     func setLabels() {
         self.hour.text = parentHour
         self.minutes.text = parentMinute
@@ -67,14 +65,20 @@ class TimePicker: UIViewController {
     
     override var preferredFocusedView: UIView? {
         get {
+            print("preferredFocusView called")
+            if needsUpdate == true {
+                print("needs update true")
+                needsUpdate = false
+                return self.doneButton
+            }
             if didComeFromHour == true {
+                print("didComeFromHour == true")
                 return self.hourPicker
             } else {
+                print("didComeFromHour == false")
                 return self.minutePicker
             }
         }
     }
     
-    // if hourPicker is done, then do hourPicker.ndexPathForSelectedRow to find out which hour they picked
-    // pass this on to brain
 }

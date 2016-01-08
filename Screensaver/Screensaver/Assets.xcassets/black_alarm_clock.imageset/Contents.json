@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "checked_box_2.png",
+      "filename" : "black_alarm_clock.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "checked_box_2@2x.png",
+      "filename" : "black_alarm_clock@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "checked_box_2@3x.png",
+      "filename" : "black_alarm_clock@3x.png",
       "scale" : "3x"
     }
   ],
