@@ -95,9 +95,7 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
     @IBAction func setAlarm(sender: AnyObject) {
         // check if user set times for all fields
         brain!.setAMPM(sleepToggle.currentTitle!, wake: wakeToggle.currentTitle!)
-//        if sleepHourField.titleLabel!.text == "" || sleepMinutesField.titleLabel!.text == "" || wakeHourField.titleLabel!.text == "" || wakeMinutesField.titleLabel!.text == "" {
-//            errorMessage.text = "One or more of the fields is empty"
-//        } else {
+
         if let sh = sleepHourField.titleLabel?.text, let sm = sleepMinutesField.titleLabel?.text,let wh = wakeHourField.titleLabel?.text, let wm = wakeMinutesField.titleLabel?.text
         {
             let sleepHour = NSNumberFormatter().numberFromString(sh)?.integerValue
@@ -119,6 +117,15 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
             errorMessage.text = "One or more of the fields is empty"
         }
     }
+    
+    func allFieldsFilled() -> Bool {
+        if let sh = sleepHourField.titleLabel?.text, let sm = sleepMinutesField.titleLabel?.text,let wh = wakeHourField.titleLabel?.text, let wm = wakeMinutesField.titleLabel?.text
+        {
+            return true
+        } else {
+            return false
+        }
+    }
 
     
     // Focus and selection toggles
@@ -132,17 +139,17 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
     
     func setCheckBoxWhenSelected() {
         if userCheckedRememberSettings == false {
-            checkBox.setBackgroundImage(UIImage(named: "black_unchecked_box_2.png"), forState: .Normal)
+            checkBox.setBackgroundImage(UIImage(named: "black_unchecked_box_border.png"), forState: .Normal)
         } else {
-            checkBox.setBackgroundImage(UIImage(named: "black_checked_box_2.png"), forState: .Normal)
+            checkBox.setBackgroundImage(UIImage(named: "black_checked_box_border.png"), forState: .Normal)
         }
     }
     
     func setCheckBox() {
         if userCheckedRememberSettings == false {
-            checkBox.setBackgroundImage(UIImage(named: "unchecked_box_2.png"), forState: .Normal)
+            checkBox.setBackgroundImage(UIImage(named: "white_unchecked_box_border.png"), forState: .Normal)
         } else {
-            checkBox.setBackgroundImage(UIImage(named: "checked_box_2.png"), forState: .Normal)
+            checkBox.setBackgroundImage(UIImage(named: "white_checked_box_border.png"), forState: .Normal)
         }
     }
     
@@ -209,22 +216,7 @@ class chooseWakeTime: UIViewController, UITextFieldDelegate {
         vc.parentHour = hour
         vc.parentMinute = minute
     }
-    
-    //    func createButton() {
-    //        print("createbutton called")
-    //        let sampleTextField = UITextField(frame: CGRectMake(600, 500, 138, 78))
-    //        sampleTextField.placeholder = "Enter text here"
-    //        sampleTextField.font = UIFont.systemFontOfSize(15)
-    //        sampleTextField.borderStyle = UITextBorderStyle.RoundedRect
-    //        sampleTextField.autocorrectionType = UITextAutocorrectionType.No
-    //        sampleTextField.keyboardType = UIKeyboardType.NumberPad
-    //        sampleTextField.returnKeyType = UIReturnKeyType.Done
-    //        sampleTextField.clearButtonMode = UITextFieldViewMode.WhileEditing;
-    //        sampleTextField.backgroundColor = UIColor.blackColor()
-    //        sampleTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
-    //        sampleTextField.delegate = self
-    //        self.view.addSubview(sampleTextField)
-    //    }
+
 }
 
 

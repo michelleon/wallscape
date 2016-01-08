@@ -30,6 +30,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var locationPin: UIImageView!
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var alarmClockButton: UIButton!
+    @IBOutlet weak var alarm_label: UILabel!
 
     var timer = NSTimer()
     var brain = ScreensaverBrain()
@@ -48,6 +49,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         // Set up UI Elements
         greeting.text = ""
+        resetAlarmLabel()
         
         // Do any additional setup after loading the view, typically from a nib.
         getTime()
@@ -143,7 +145,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         isAsleep = false
         getTime()
         greeting.text = brain.getGreetingByTimeOfDay(brain.hour)
-//        changeImage()
+        resetAlarmLabel()
         displayWeather(mostRecentLat!, lon: mostRecentLong!)
         self.timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("removeGreeting"), userInfo: nil, repeats: false)
     }
@@ -239,6 +241,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     }
 
+    func resetAlarmLabel() {
+        alarm_label.text = ""
+    }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print(error)
@@ -259,7 +264,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             print("Coming from chooseWakeTime")
             if brain.newAlarm == true {
                 greeting.text = "Alarm set for \(brain.formatHour(brain.sleepHour!)):\(brain.formatMinutes(brain.sleepMinute!))"
-                self.timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("removeGreeting"), userInfo: nil, repeats: false)
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("removeGreeting"), userInfo: nil, repeats: false)
+                alarm_label.text = "Sleep at \(brain.formatHour(brain.sleepHour!)):\(brain.formatMinutes(brain.sleepMinute!)) \(brain.sleepToggle)"
                 brain.newAlarm = false
             }
         } else if let _ = unwindSegue.sourceViewController as? SleepController {
@@ -277,13 +283,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func makeAlarmButtonBlack() {
-        alarmClockButton.setBackgroundImage(UIImage(named: "black_alarm_clock"), forState: .Normal)
-        alarmClockButton.setBackgroundImage(UIImage(named: "black_alarm_clock"), forState: .Selected)
+        alarmClockButton.setBackgroundImage(UIImage(named: "lightbulb_black_small"), forState: .Normal)
+        alarmClockButton.setBackgroundImage(UIImage(named: "lightbulb_black_small"), forState: .Selected)
     }
     
     func makeAlarmButtonWhite() {
-        alarmClockButton.setBackgroundImage(UIImage(named: "alarm_clock"), forState: .Normal)
-        alarmClockButton.setBackgroundImage(UIImage(named: "alarm_clock"), forState: .Selected)
+        alarmClockButton.setBackgroundImage(UIImage(named: "lightbulb_white_small"), forState: .Normal)
+        alarmClockButton.setBackgroundImage(UIImage(named: "lightbulb_white_small"), forState: .Selected)
     }
     
 }
