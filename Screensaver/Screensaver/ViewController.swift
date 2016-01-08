@@ -55,10 +55,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         getTime()
         changeImage()
 //        button.backgroundColor = UIColor.clearColor()
-//        tapRecognizer = UITapGestureRecognizer(target: self, action: "tapped:")
-        tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleMenuPress:"))
-        tapRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.Menu.rawValue)]
-        self.view.addGestureRecognizer(tapRecognizer)
         
         //Initializing location services
         self.locationManager.requestWhenInUseAuthorization()
